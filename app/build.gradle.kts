@@ -4,11 +4,11 @@ plugins {
 
 android {
     namespace = "com.svalero.appcinema"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.svalero.appcinema"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"

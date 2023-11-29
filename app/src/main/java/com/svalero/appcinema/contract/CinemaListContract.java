@@ -8,17 +8,22 @@ public interface CinemaListContract {
 
     interface Model {
         interface OnLoadCinemasListener {
-            void OnLoadCinemaSuccess(List<Cinema> cinemas);
-            void OnLoadCinemasError(String message);
+            void onLoadCinemaSuccess(List<Cinema> cinemas);
+
+            void onLoadCinemasError(String message);
         }
 
-        interface View {
-            void listCinemas(List<Cinema> cinemas);
-            void showMessage(String message);
-        }
+        void loadAllCinemas(OnLoadCinemasListener listener);
 
-        interface Presenter {
-            void loadAllCinemas();
-        }
     }
+
+    interface View {
+        void listCinemas(List<Cinema> cinemas);
+        void showMessage(String message);
+    }
+
+    interface Presenter {
+        void loadAllCinemas();
+    }
+
 }
