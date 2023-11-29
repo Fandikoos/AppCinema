@@ -17,6 +17,23 @@ import java.util.List;
 
 public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHolder> {
 
+    private 
+    @NonNull
+    @Override
+    public CinemaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return null;
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull CinemaHolder holder, int position) {
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return 0;
+    }
+
     public class CinemaHolder extends RecyclerView.ViewHolder {
 
         public TextView tvName;
