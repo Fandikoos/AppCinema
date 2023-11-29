@@ -17,21 +17,31 @@ import java.util.List;
 
 public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHolder> {
 
-    private 
+    private List<Cinema> cinemas;
+
+    public CinemaAdapter(List<Cinema> cinemas){
+        this.cinemas = cinemas;
+    }
+
     @NonNull
     @Override
     public CinemaHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.cinema_list_item, parent, false);
+        return new CinemaHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull CinemaHolder holder, int position) {
+        Cinema cinema = cinemas.get(position);
 
+        holder.tvName.setText(cinema.getName());
+        holder.tvRating.setText((int) cinema.getRating());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return cinemas.size();
     }
 
     public class CinemaHolder extends RecyclerView.ViewHolder {
@@ -49,7 +59,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
             tvName = view.findViewById(R.id.cinema_name);
             tvRating = view.findViewById(R.id.cinema_rating);
-            detailsButton = view.findViewById(R.id.cinema_details)
+            detailsButton = view.findViewById(R.id.cinema_details);
             deleteButton = view.findViewById(R.id.cinema_delete);
             doButton = view.findViewById(R.id.add_cinema_button);
 
