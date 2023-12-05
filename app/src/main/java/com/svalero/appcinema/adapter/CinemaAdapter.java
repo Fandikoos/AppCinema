@@ -63,14 +63,19 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
             deleteButton = view.findViewById(R.id.cinema_delete);
             doButton = view.findViewById(R.id.add_cinema_button);
 
+
             //Para cuando pulse el boton de mas para hacer un cine, details de cine o delete de cine
-            //doButton.setOnClickListener(v -> doCinema(cinema));
+            doButton.setOnClickListener(v -> doCinema(cinema));
             //detailsButton.setOnClickListener(v -> goToCinemaDetails(cinema));
             //deleteButton.setOnClickListener(v -> deleteCinema(cinema));
 
-            //Metodo de crear un cine
-
-            //Metodo de ir a detalles del cine
         }
+
+        //Metodo de crear un cine
+        private void doCinema(View view){
+            int currentPosition
+        }
+
+        //Metodo de ir a detalles del cine
     }
 }
