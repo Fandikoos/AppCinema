@@ -61,7 +61,7 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
 
     //TODO HACER LA ACTION BAR E IMPLEMENTAR LOS METODOS (id=action_bar)
 
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.action_bar, menu);
         return true;
@@ -69,13 +69,14 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.action_add_task) {
-            goToAddTask();
+        if (item.getItemId() == R.id.action_add_cinema) {
+            goToAddCinema();
             return true;
         }
 
+        //TODO hacer lo de las preferencias maybe
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 
     public void goToAddCinema(){
         Intent intent = new Intent(this, RegisterCinemaView.class);

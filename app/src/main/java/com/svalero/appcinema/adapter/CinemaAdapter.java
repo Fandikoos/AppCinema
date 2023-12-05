@@ -36,7 +36,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
         Cinema cinema = cinemas.get(position);
 
         holder.tvName.setText(cinema.getName());
-        holder.tvRating.setText((int) cinema.getRating());
+        holder.tvRating.setText(String.valueOf(cinema.getRating()));
     }
 
     @Override
@@ -65,16 +65,14 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
 
             //Para cuando pulse el boton de mas para hacer un cine, details de cine o delete de cine
-            doButton.setOnClickListener(v -> doCinema(cinema));
+            //doButton.setOnClickListener(v -> doCinema(cinema));
             //detailsButton.setOnClickListener(v -> goToCinemaDetails(cinema));
             //deleteButton.setOnClickListener(v -> deleteCinema(cinema));
 
         }
 
         //Metodo de crear un cine
-        private void doCinema(View view){
-            int currentPosition
-        }
+
 
         //Metodo de ir a detalles del cine
     }

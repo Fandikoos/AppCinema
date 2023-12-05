@@ -18,7 +18,7 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name=".view.CinemaDetailsView"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".view.CinemaListView"
             android:exported="true">

@@ -39,7 +39,7 @@
             android:hint="@string/rating"
             android:inputType="text" />
 
-        <com.google.android.gms.maps.MapView
+        <com.mapbox.maps.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
             android:layout_height="500dp"

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.mapbox.geojson.Point;
 import com.mapbox.maps.MapView;
 import com.mapbox.maps.Style;
+import com.mapbox.maps.plugin.Plugin;
 import com.mapbox.maps.plugin.annotation.AnnotationConfig;
 import com.mapbox.maps.plugin.annotation.AnnotationPlugin;
 import com.mapbox.maps.plugin.annotation.AnnotationPluginImplKt;
@@ -26,7 +27,8 @@ import com.svalero.appcinema.contract.RegisterCinemaContract;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.presenter.RegisterCinemaPresenter;
 
-public class RegisterCinemaView extends AppCompatActivity implements Style.OnStyleLoaded, OnMapClickListener, RegisterCinemaContract.View {
+public class RegisterCinemaView extends AppCompatActivity implements Style.OnStyleLoaded,
+        OnMapClickListener, RegisterCinemaContract.View {
 
     private MapView mapView;
     private PointAnnotationManager pointAnnotationManager;
@@ -47,9 +49,6 @@ public class RegisterCinemaView extends AppCompatActivity implements Style.OnSty
         gesturesPlugin.addOnMapClickListener(this);
 
         presenter = new RegisterCinemaPresenter(this);
-
-        //Faltan aqui cosas
-
     }
 
     public void createCinema(View view){
