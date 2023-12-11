@@ -40,7 +40,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/black"
-            android:text="Detalles" />
+            android:text="@string/details" />
 
         <!-- Boton de borrado -->
         <Button
@@ -51,7 +51,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/red"
-            android:text="Eliminar" />
+            android:text="@string/delete" />
 
 
     </LinearLayout>
