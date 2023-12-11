@@ -16,27 +16,43 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/name_cinema"
+            android:id="@+id/title_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/name"
+            android:hint="Título"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/capacity_cinema"
+            android:id="@+id/director_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/capacity"
+            android:hint="Director"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/rating_cinema"
+            android:id="@+id/genre_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/rating"
+            android:hint="Genero"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/duration_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Duracion"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/releaseDate_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Fecha de lanzamiento"
             android:inputType="text" />
 
         <!--
@@ -70,7 +86,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="createCinema"
+            android:onClick="createMovie"
             android:text="@string/create" />
     </LinearLayout>
 

@@ -1,6 +1,8 @@
 package com.svalero.appcinema.api;
 
+import com.svalero.appcinema.contract.MovieListContract;
 import com.svalero.appcinema.domain.Cinema;
+import com.svalero.appcinema.domain.Movie;
 
 import java.util.List;
 
@@ -21,4 +23,10 @@ public interface CinemaApiInterface {
 
     @DELETE("cinema/{cinemaId}")
     Call<Void> deleteCinema(@Path("cinemaId") long cinemaId);
+
+    @GET("movies")
+    Call<List<Movie>> getMovies();
+
+    @POST("movies")
+    Call<Movie> addMovie(@Body Movie movie);
 }

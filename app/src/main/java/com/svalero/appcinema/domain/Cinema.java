@@ -4,8 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverters;
+
+import com.svalero.appcinema.util.Converters;
+
+import java.time.LocalDate;
 
 @Entity
+@TypeConverters(Converters.class)
 public class Cinema {
 
     @PrimaryKey
@@ -19,6 +25,9 @@ public class Cinema {
     private double longitude;*/
     @ColumnInfo
     private float rating;
+    //@ColumnInfo(name = "opening_date")
+    //private LocalDate openingDate;
+
 
     public Cinema(String name, int capacity, float rating){
         this.name = name;
@@ -27,13 +36,15 @@ public class Cinema {
         this.latitude = latitude;
         this.longitude = longitude;*/
         this.rating = rating;
+        //this.openingDate = openingDate;
     }
 
+    @NonNull
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(@NonNull String name) {
         this.name = name;
     }
 
@@ -69,4 +80,13 @@ public class Cinema {
     public void setRating(float rating) {
         this.rating = rating;
     }
+
+    /*
+    public LocalDate getOpeningDate() {
+        return openingDate;
+    }
+
+    public void setOpeningDate(LocalDate openingDate) {
+        this.openingDate = openingDate;
+    }*/
 }

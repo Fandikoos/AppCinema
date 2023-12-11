@@ -26,8 +26,11 @@ import com.svalero.appcinema.R;
 import com.svalero.appcinema.contract.RegisterCinemaContract;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.presenter.RegisterCinemaPresenter;
+import com.svalero.appcinema.util.Converters;
 
-public class RegisterCinemaView extends AppCompatActivity implements Style.OnStyleLoaded,
+import java.time.LocalDate;
+
+public class RegisterCinemaView extends AppCompatActivity implements /*Style.OnStyleLoaded,*/
         /*OnMapClickListener,*/ RegisterCinemaContract.View {
 
 
@@ -57,11 +60,14 @@ public class RegisterCinemaView extends AppCompatActivity implements Style.OnSty
         EditText etName = findViewById(R.id.name_cinema);
         EditText etCapacity = findViewById(R.id.capacity_cinema);
         EditText etRating = findViewById(R.id.rating_cinema);
+        //EditText etOpeningDate = findViewById(R.id.openingDate_cinema);
 
         String cinemaName = etName.getText().toString();
         int cinemaCapacity = Integer.parseInt(etCapacity.getText().toString());
         float cinemaRating = Float.parseFloat(etRating.getText().toString());
+        //Long openingDateStr = Long.valueOf(etOpeningDate.getText().toString());
 
+        //LocalDate openingDate = Converters.fromTimestamp(openingDateStr);
         Cinema cinema = new Cinema(cinemaName, cinemaCapacity, cinemaRating);
         presenter.registerCinema(cinema);
     }
@@ -87,10 +93,10 @@ public class RegisterCinemaView extends AppCompatActivity implements Style.OnSty
         pointAnnotationManager.create(pointAnnotationOptions);
     }*/
 
-    @Override
+    /*@Override
     public void onStyleLoaded(@NonNull Style style) {
 
-    }
+    }*/
 
     @Override
     public void showMessage(int stringId) {
