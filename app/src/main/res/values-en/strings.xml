@@ -1,2 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name">AppCinema</string>
+    <string name="name">Name</string>
+    <string name="capacity">Capacity</string>
+    <string name="rating">Rating</string>
+    <string name="create">Create</string>
+    <string name="here">Here</string>
+    <string name="details">Details</string>
+    <string name="delete">Delete</string>
+</resources>

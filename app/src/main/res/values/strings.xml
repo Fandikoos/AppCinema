@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">AppCinema</string>
+    <string name="name">Nombre</string>
+    <string name="capacity">Capacidad</string>
+    <string name="rating">Puntuación</string>
+    <string name="create">Crear</string>
+    <string name="here">Aquí</string>
+    <string name="details">Detalles</string>
+    <string name="delete">Eliminar</string>
 </resources>

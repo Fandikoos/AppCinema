@@ -19,6 +19,7 @@
             android:id="@+id/cinema_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -27,7 +28,7 @@
             android:id="@+id/cinema_rating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_margin="10dp"
             android:textSize="16sp" />
 
         <!-- Boton de detalles -->
@@ -39,7 +40,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/black"
-            android:text="Detalles" />
+            android:text="@string/details" />
 
         <!-- Boton de borrado -->
         <Button
@@ -50,7 +51,7 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/red"
-            android:text="Eliminar" />
+            android:text="@string/delete" />
 
 
     </LinearLayout>
