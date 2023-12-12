@@ -52,15 +52,15 @@ public class RegisterMovieView extends AppCompatActivity implements /*Style.OnSt
         EditText etDirector = findViewById(R.id.director_movie);
         EditText etGenre = findViewById(R.id.genre_movie);
         EditText etDuration = findViewById(R.id.duration_movie);
-        EditText etRelaseDate = findViewById(R.id.releaseDate_movie);
+        //EditText etRelaseDate = findViewById(R.id.releaseDate_movie);
 
         String movieTitle = etTitle.getText().toString();
         String directorMovie = etDirector.getText().toString();
         String genreMovie = etGenre.getText().toString();
         int durationMovie = Integer.parseInt(etDuration.getText().toString());
-        LocalDate releaseDateMovie = LocalDate.parse(etRelaseDate.getText().toString());
+        //LocalDate releaseDateMovie = LocalDate.parse(etRelaseDate.getText().toString());
 
-        Movie movie = new Movie(movieTitle, directorMovie, genreMovie, durationMovie, releaseDateMovie);
+        Movie movie = new Movie(movieTitle, directorMovie, genreMovie, durationMovie/*, releaseDateMovie*/);
         presenter.registerMovie(movie);
     }
     /*

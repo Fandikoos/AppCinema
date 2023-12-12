@@ -8,4 +8,11 @@
     <string name="details">Detalles</string>
     <string name="delete">Eliminar</string>
     <string name="openingDate">Día de apertura</string>
+    <string name="movies">Películas</string>
+    <string name="item">Añadir</string>
+    <string name="title">Titulo</string>
+    <string name="director">Director</string>
+    <string name="genre">Género</string>
+    <string name="duration">Duración</string>
+    <string name="cinemas">Cines</string>
 </resources>

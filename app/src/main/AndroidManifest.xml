@@ -31,7 +31,14 @@
         </activity>
         <activity
             android:name=".view.RegisterCinemaView"
-            android:exported="false"></activity>
+            android:exported="false"/>
+        <activity
+            android:name=".view.MovieListView"
+            android:exported="false"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".view.RegisterMovieView"
+            android:exported="false"/>
     </application>
 
 </manifest>

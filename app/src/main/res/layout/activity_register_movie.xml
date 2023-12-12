@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".view.RegisterCinemaView">
+    tools:context=".view.RegisterMovieView">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Título"
+            android:hint="@string/title"
             android:inputType="text" />
 
         <EditText
@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Director"
+            android:hint="@string/director"
             android:inputType="text" />
 
         <EditText
@@ -36,7 +36,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Genero"
+            android:hint="@string/genre"
             android:inputType="text" />
 
         <EditText
@@ -44,25 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Duracion"
+            android:hint="@string/duration"
             android:inputType="text" />
-
-        <EditText
-            android:id="@+id/releaseDate_movie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Fecha de lanzamiento"
-            android:inputType="text" />
-
-        <!--
-        <EditText
-            android:id="@+id/openingDate_cinema"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/openingDate"
-            android:inputType="text" />-->
 
         <!--
         <com.mapbox.maps.MapView

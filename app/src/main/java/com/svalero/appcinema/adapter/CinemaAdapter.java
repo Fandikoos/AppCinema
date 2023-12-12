@@ -53,6 +53,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
         public Button deleteButton;
         public Button detailsButton;
         public Button doButton;
+        public Button movieButton;
         public View parentView;
 
         public CinemaHolder(@NonNull View view){
@@ -64,6 +65,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
             detailsButton = view.findViewById(R.id.cinema_details);
             deleteButton = view.findViewById(R.id.cinema_delete);
             doButton = view.findViewById(R.id.add_cinema_button);
+            movieButton = view.findViewById(R.id.go_to_movies);
 
 
             //Para cuando pulse el boton de mas para hacer un cine, details de cine o delete de cine

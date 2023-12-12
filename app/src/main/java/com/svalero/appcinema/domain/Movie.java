@@ -13,20 +13,20 @@ public class Movie {
     @PrimaryKey
     private @NonNull String title;
     @ColumnInfo
-    private String director;
+    private @NonNull String director;
     @ColumnInfo
     private String genre;
     @ColumnInfo
     private int duration;
-    @ColumnInfo
-    private @NonNull LocalDate releaseDate;
+    /*@ColumnInfo
+    private @NonNull LocalDate releaseDate;*/
 
-    public Movie(String title, String director, String genre, int duration, LocalDate releaseDate){
+    public Movie(String title, String director, String genre, int duration/*, LocalDate releaseDate*/){
         this.title = title;
         this.director = director;
         this.genre = genre;
         this.duration = duration;
-        this.releaseDate = releaseDate;
+        //this.releaseDate = releaseDate;
     }
 
     @NonNull
@@ -38,11 +38,12 @@ public class Movie {
         this.title = title;
     }
 
+    @NonNull
     public String getDirector() {
         return director;
     }
 
-    public void setDirector(String director) {
+    public void setDirector(@NonNull String director) {
         this.director = director;
     }
 
@@ -62,13 +63,13 @@ public class Movie {
         this.duration = duration;
     }
 
-    @NonNull
-    public LocalDate getReleaseDate() {
+
+    /*public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(@NonNull LocalDate releaseDate) {
+    public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
-    }
+    }*/
 
 }

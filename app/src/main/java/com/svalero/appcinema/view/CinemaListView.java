@@ -61,7 +61,9 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
         goToAddCinema();
     }
 
-    //TODO HACER LA ACTION BAR E IMPLEMENTAR LOS METODOS (id=action_bar)
+    public void goToMovies(View view){
+        goToViewMovies();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -82,6 +84,11 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
 
     public void goToAddCinema(){
         Intent intent = new Intent(this, RegisterCinemaView.class);
+        startActivity(intent);
+    }
+
+    public void goToViewMovies(){
+        Intent intent = new Intent(this, MovieListView.class);
         startActivity(intent);
     }
 

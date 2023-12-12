@@ -49,18 +49,22 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
 
         presenter.loadAllMovies();
     }
-    /*
+
     public void addMovies(View view){
         goToAddMovie();
-    }*/
+    }
+
+    public void goToCinemas(View view){
+        goToViewCinemas();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.action_bar, menu);
+        getMenuInflater().inflate(R.menu.action_bar_movies, menu);
         return true;
     }
 
-    /*
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.action_add_movie) {
@@ -69,12 +73,17 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
-    /*
+    }
+
     public void goToAddMovie(){
         Intent intent = new Intent(this, RegisterMovieView.class);
         startActivity(intent);
-    }*/
+    }
+
+    public void goToViewCinemas(){
+        Intent intent = new Intent(this, CinemaListView.class);
+        startActivity(intent);
+    }
 
     @Override
     public void listMovies(List<Movie> movies) {
