@@ -1,5 +1,6 @@
 package com.svalero.appcinema.adapter;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.TextureView;
 import android.view.View;
@@ -34,6 +35,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
     @Override
     public void onBindViewHolder(@NonNull CinemaHolder holder, int position) {
         Cinema cinema = cinemas.get(position);
+        Log.d("Prueba", cinema.getName());
 
         holder.tvName.setText(cinema.getName());
         holder.tvRating.setText(String.valueOf(cinema.getRating()));

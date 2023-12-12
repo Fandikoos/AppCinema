@@ -14,7 +14,7 @@ import retrofit2.Response;
 public class RegisterMovieModel implements RegisterMovieContract.Model {
 
     @Override
-    public void registerTask(OnRegisterMoviesListener listener, Movie movie) {
+    public void registerMovie(OnRegisterMoviesListener listener, Movie movie) {
         CinemaApiInterface api = CinemaApi.buildInstance();
         Call<Movie> addMovieCall = api.addMovie(movie);
         addMovieCall.enqueue(new Callback<Movie>() {
@@ -30,4 +30,5 @@ public class RegisterMovieModel implements RegisterMovieContract.Model {
             }
         });
     }
+
 }

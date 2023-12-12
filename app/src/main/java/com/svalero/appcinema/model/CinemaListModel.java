@@ -25,6 +25,7 @@ public class CinemaListModel implements CinemaListContract.Model {
             public void onResponse(Call<List<Cinema>> call, Response<List<Cinema>> response) {
                 Log.e("getCinemas", response.message());
                 List<Cinema> cinemas = response.body();
+                //Log.d("getCinemas", String.valueOf(cinemas.size()));
                 listener.onLoadCinemaSuccess(cinemas);
             }
 
