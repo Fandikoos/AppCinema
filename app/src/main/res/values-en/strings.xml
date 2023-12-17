@@ -6,7 +6,7 @@
     <string name="rating">Rating</string>
     <string name="create">Create</string>
     <string name="here">Here</string>
-    <string name="details">Details</string>
+    <string name="modify">Modify</string>
     <string name="delete">Delete</string>
     <string name="openingDate">Opening Day</string>
     <string name="movies">Movies</string>
@@ -16,4 +16,7 @@
     <string name="genre">Genre</string>
     <string name="duration">Duration</string>
     <string name="cinemas">Cinemas</string>
+    <string name="newName">Rename</string>
+    <string name="newCapacity">New Capacity</string>
+    <string name="newRating">New Rating</string>
 </resources>

@@ -1,8 +1,8 @@
 package com.svalero.appcinema.adapter;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.domain.Cinema;
+import com.svalero.appcinema.view.CinemaModifyView;
 
 import java.util.List;
 
@@ -48,10 +49,11 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
     public class CinemaHolder extends RecyclerView.ViewHolder {
 
+        public TextView tvId;
         public TextView tvName;
         public TextView tvRating;
         public Button deleteButton;
-        public Button detailsButton;
+        public Button modifyButton;
         public Button doButton;
         public Button movieButton;
         public View parentView;
@@ -62,22 +64,26 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
             tvName = view.findViewById(R.id.cinema_name);
             tvRating = view.findViewById(R.id.cinema_rating);
-            detailsButton = view.findViewById(R.id.cinema_details);
+            modifyButton = view.findViewById(R.id.cinema_modify);
             deleteButton = view.findViewById(R.id.cinema_delete);
             doButton = view.findViewById(R.id.add_cinema_button);
             movieButton = view.findViewById(R.id.go_to_movies);
 
 
-            //Para cuando pulse el boton de mas para hacer un cine, details de cine o delete de cine
-            //doButton.setOnClickListener(v -> doCinema(cinema));
-            //detailsButton.setOnClickListener(v -> goToCinemaDetails(cinema));
+            modifyButton.setOnClickListener(v -> goToModifyCinema(view));
             //deleteButton.setOnClickListener(v -> deleteCinema(cinema));
 
         }
 
-        //Metodo de crear un cine
+        //Metodo para borrar un cine
 
 
-        //Metodo de ir a detalles del cine
+        //Metodo de ir a modifica un cine
+        private void goToModifyCinema(View itemView){
+            Intent intent = new Intent(itemView.getContext(), CinemaModifyView.class);
+            Cinema cinema = cinemas.get(getAdapterPosition());
+            intent.putExtra("cinema_name", cinema.getName());
+            itemView.getContext().startActivity(intent);
+        }
     }
 }

@@ -8,8 +8,6 @@ import androidx.room.TypeConverters;
 
 import com.svalero.appcinema.util.Converters;
 
-import java.time.LocalDate;
-
 @Entity
 @TypeConverters(Converters.class)
 public class Cinema {
@@ -27,7 +25,6 @@ public class Cinema {
     private float rating;
     //@ColumnInfo(name = "opening_date")
     //private LocalDate openingDate;
-
 
     public Cinema(String name, int capacity, float rating){
         this.name = name;

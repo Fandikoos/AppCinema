@@ -11,15 +11,23 @@ import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 public interface CinemaApiInterface {
 
     @GET("cinemas")
     Call<List<Cinema>> getCinemas();
 
+    @GET("cinema/{cinemaName}")
+    Call<Cinema> getCinemaDetails(@Query("cinemaName") String cinemaName);
+
     @POST("cinemas")
     Call<Cinema> addCinema(@Body Cinema cinema);
+
+    @PUT("cinema/{cinemaId}")
+    Call<Cinema> modifyCinema(@Path("cinemaName") String cinemaName,@Body Cinema cinema);
 
     @DELETE("cinema/{cinemaId}")
     Call<Void> deleteCinema(@Path("cinemaId") long cinemaId);

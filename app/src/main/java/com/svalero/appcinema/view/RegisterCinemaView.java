@@ -57,6 +57,7 @@ public class RegisterCinemaView extends AppCompatActivity implements /*Style.OnS
     }
 
     public void createCinema(View view){
+
         EditText etName = findViewById(R.id.name_cinema);
         EditText etCapacity = findViewById(R.id.capacity_cinema);
         EditText etRating = findViewById(R.id.rating_cinema);

@@ -1,4 +1,4 @@
 package com.svalero.appcinema.view;
 
-public class CinemaDetailsView {
+public class CinemaModifyView {
 }

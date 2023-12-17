@@ -5,7 +5,7 @@
     <string name="rating">Puntuación</string>
     <string name="create">Crear</string>
     <string name="here">Aquí</string>
-    <string name="details">Detalles</string>
+    <string name="modify">Modificar</string>
     <string name="delete">Eliminar</string>
     <string name="openingDate">Día de apertura</string>
     <string name="movies">Películas</string>
@@ -15,4 +15,7 @@
     <string name="genre">Género</string>
     <string name="duration">Duración</string>
     <string name="cinemas">Cines</string>
+    <string name="newName">Nuevo Nombre</string>
+    <string name="newCapacity">Nueva Capacidad</string>
+    <string name="newRating">Nueva Puntuación</string>
 </resources>

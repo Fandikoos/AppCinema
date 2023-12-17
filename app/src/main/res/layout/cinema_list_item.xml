@@ -33,7 +33,7 @@
 
         <!-- Boton de detalles -->
         <Button
-            android:id="@+id/cinema_details"
+            android:id="@+id/cinema_modify"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -41,7 +41,8 @@
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/black"
             android:textColor="#FFFFFF"
-            android:text="@string/details" />
+            android:text="@string/modify"
+            android:onClick="goToModifyCinema"/>
 
         <!-- Boton de borrado -->
         <Button
