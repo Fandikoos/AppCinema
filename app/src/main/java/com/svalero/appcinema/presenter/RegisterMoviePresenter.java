@@ -15,7 +15,7 @@ public class RegisterMoviePresenter implements RegisterMovieContract.Presenter, 
     }
     @Override
     public void onRegisterMovieSuccess() {
-        view.showMessage("La tarea se ha registrado correctamente");
+        view.showMessage("La película se ha registrado correctamente");
     }
 
     @Override

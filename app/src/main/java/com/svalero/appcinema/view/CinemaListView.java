@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.adapter.CinemaAdapter;
@@ -24,8 +23,6 @@ import com.svalero.appcinema.presenter.CinemaListPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import kotlin.collections.ArrayDeque;
 
 public class CinemaListView extends AppCompatActivity implements CinemaListContract.View {
 

@@ -15,7 +15,6 @@ import retrofit2.Response;
 
 public class CinemaListModel implements CinemaListContract.Model {
 
-
     @Override
     public void loadAllCinemas(OnLoadCinemasListener listener){
         CinemaApiInterface api = CinemaApi.buildInstance();

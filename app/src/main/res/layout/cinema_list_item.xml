@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="16dp"
-    android:background="@color/grey">
+    android:background="@color/grey"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="@drawable/border_background"
+        android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
@@ -40,9 +40,8 @@
             android:layout_marginTop="4dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/black"
-            android:textColor="#FFFFFF"
             android:text="@string/modify"
-            android:onClick="goToModifyCinema"/>
+            android:textColor="#FFFFFF" />
 
         <!-- Boton de borrado -->
         <Button
@@ -53,8 +52,9 @@
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/red"
-            android:textColor="#FFFFFF"
-            android:text="@string/delete" />
+            android:text="@string/delete"
+            android:onClick="deleteCinema"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 

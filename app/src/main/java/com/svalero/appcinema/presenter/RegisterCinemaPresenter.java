@@ -20,7 +20,7 @@ public class RegisterCinemaPresenter implements RegisterCinemaContract.Presenter
     }
     @Override
     public void onRegisterCinemaSuccess() {
-        view.showMessage("La tarea se ha registrado correctamente");
+        view.showMessage("El cine se ha registrado correctamente");
 
     }
 

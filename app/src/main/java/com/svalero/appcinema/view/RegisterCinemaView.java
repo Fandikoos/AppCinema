@@ -26,7 +26,6 @@ import com.svalero.appcinema.R;
 import com.svalero.appcinema.contract.RegisterCinemaContract;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.presenter.RegisterCinemaPresenter;
-import com.svalero.appcinema.util.Converters;
 
 import java.time.LocalDate;
 

@@ -3,16 +3,16 @@ package com.svalero.appcinema.domain;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverters;
-
-import com.svalero.appcinema.util.Converters;
 
 @Entity
-@TypeConverters(Converters.class)
 public class Cinema {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private long id;
+
+    @ColumnInfo
     private @NonNull String name;
     @ColumnInfo
     private int capacity;
@@ -36,6 +36,26 @@ public class Cinema {
         //this.openingDate = openingDate;
     }
 
+
+    @Ignore
+    public Cinema(long id, String name, int capacity, float rating){
+        this.id = id;
+        this.name = name;
+        this.capacity = capacity;
+        /*
+        this.latitude = latitude;
+        this.longitude = longitude;*/
+        this.rating = rating;
+        //this.openingDate = openingDate;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
     @NonNull
     public String getName() {
         return name;

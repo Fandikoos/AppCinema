@@ -20,17 +20,11 @@ public interface CinemaApiInterface {
     @GET("cinemas")
     Call<List<Cinema>> getCinemas();
 
-    @GET("cinema/{cinemaName}")
-    Call<Cinema> getCinemaDetails(@Query("cinemaName") String cinemaName);
+    @DELETE("cinema/{cinemaId}")
+    Call<Void> deleteCinema(@Path("cinemaId") Long id);
 
     @POST("cinemas")
     Call<Cinema> addCinema(@Body Cinema cinema);
-
-    @PUT("cinema/{cinemaId}")
-    Call<Cinema> modifyCinema(@Path("cinemaName") String cinemaName,@Body Cinema cinema);
-
-    @DELETE("cinema/{cinemaId}")
-    Call<Void> deleteCinema(@Path("cinemaId") long cinemaId);
 
     @GET("movies")
     Call<List<Movie>> getMovies();

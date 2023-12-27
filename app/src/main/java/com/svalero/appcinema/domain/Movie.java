@@ -11,9 +11,9 @@ import java.time.LocalDate;
 public class Movie {
 
     @PrimaryKey
-    private @NonNull String title;
+    private String title;
     @ColumnInfo
-    private @NonNull String director;
+    private String director;
     @ColumnInfo
     private String genre;
     @ColumnInfo
