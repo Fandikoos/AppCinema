@@ -2,6 +2,7 @@ package com.svalero.appcinema.adapter;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import com.svalero.appcinema.api.CinemaApiInterface;
 import com.svalero.appcinema.contract.CinemaListContract;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.presenter.CinemaListPresenter;
+import com.svalero.appcinema.view.UpdateCinemaView;
 
 import java.util.List;
 
@@ -82,7 +84,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
             movieButton = view.findViewById(R.id.go_to_movies);
 
 
-            //modifyButton.setOnClickListener(v -> goToModifyCinema(view));
+            modifyButton.setOnClickListener(v -> goToUpdateCinema(view));
 
             //TODO intentar hacerlo con el contract
             //Borrar un cine
@@ -141,5 +143,11 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
         }
 
         //Metodo de ir a modifica un cine
+        private void goToUpdateCinema(View itemView){
+            Intent intent = new Intent(itemView.getContext(), UpdateCinemaView.class);
+            Cinema cinema = cinemas.get(getAdapterPosition());
+            intent.putExtra("cinemaId", cinema.getId());
+            itemView.getContext().startActivity(intent);
+        }
     }
 }

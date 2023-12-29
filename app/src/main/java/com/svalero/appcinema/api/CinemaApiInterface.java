@@ -23,8 +23,14 @@ public interface CinemaApiInterface {
     @DELETE("cinema/{cinemaId}")
     Call<Void> deleteCinema(@Path("cinemaId") Long id);
 
+    @PUT("cinema/{cinemaId}")
+    Call<Void> updateCinema(@Path("cinemaId") long cinemaId, @Body Cinema updateCinema);
+
     @POST("cinemas")
     Call<Cinema> addCinema(@Body Cinema cinema);
+
+    @GET("cinema")
+    Call<Cinema> getCinemaById(@Query("cinemaId") long cinemaId);
 
     @GET("movies")
     Call<List<Movie>> getMovies();
