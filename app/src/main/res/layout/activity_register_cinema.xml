@@ -39,6 +39,15 @@
             android:hint="@string/rating"
             android:inputType="text" />
 
+        <com.mapbox.maps.MapView
+            android:id="@+id/mapView"
+            android:layout_width="match_parent"
+            android:layout_height="512dp"
+            app:mapbox_cameraTargetLat="40.7128"
+            app:mapbox_cameraTargetLng="-0.80060"
+            app:mapbox_cameraZoom="7.0"
+            app:mapbox_resourcesAccessToken="@string/mapboxAccessToken"/>
+
         <!--
         <EditText
             android:id="@+id/openingDate_cinema"
@@ -47,15 +56,6 @@
             android:ems="10"
             android:hint="@string/openingDate"
             android:inputType="text" />-->
-
-        <!--
-        <com.mapbox.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            app:mapbox_cameraTargetLat="40.7128"
-            app:mapbox_cameraTargetLng="-0.80060"
-            app:mapbox_cameraZoom="7.0" />-->
     </LinearLayout>
 
     <LinearLayout

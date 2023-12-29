@@ -16,22 +16,20 @@ public class Cinema {
     private @NonNull String name;
     @ColumnInfo
     private int capacity;
-    /*
     @ColumnInfo
     private double latitude;
     @ColumnInfo
-    private double longitude;*/
+    private double longitude;
     @ColumnInfo
     private float rating;
     //@ColumnInfo(name = "opening_date")
     //private LocalDate openingDate;
 
-    public Cinema(String name, int capacity, float rating){
+    public Cinema(String name, int capacity, float rating, double latitude, double longitude){
         this.name = name;
         this.capacity = capacity;
-        /*
         this.latitude = latitude;
-        this.longitude = longitude;*/
+        this.longitude = longitude;
         this.rating = rating;
         //this.openingDate = openingDate;
     }
@@ -73,7 +71,15 @@ public class Cinema {
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
-/*
+
+    public float getRating() {
+        return rating;
+    }
+
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
     public double getLatitude() {
         return latitude;
     }
@@ -88,14 +94,6 @@ public class Cinema {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }*/
-
-    public float getRating() {
-        return rating;
-    }
-
-    public void setRating(float rating) {
-        this.rating = rating;
     }
 
     /*

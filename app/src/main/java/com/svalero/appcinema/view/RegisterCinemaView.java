@@ -1,5 +1,6 @@
 package com.svalero.appcinema.view;
 
+import android.annotation.SuppressLint;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
@@ -26,11 +27,10 @@ import com.svalero.appcinema.R;
 import com.svalero.appcinema.contract.RegisterCinemaContract;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.presenter.RegisterCinemaPresenter;
-
 import java.time.LocalDate;
 
-public class RegisterCinemaView extends AppCompatActivity implements /*Style.OnStyleLoaded,*/
-        /*OnMapClickListener,*/ RegisterCinemaContract.View {
+public class RegisterCinemaView extends AppCompatActivity implements Style.OnStyleLoaded,
+        OnMapClickListener, RegisterCinemaContract.View {
 
 
 
@@ -45,12 +45,12 @@ public class RegisterCinemaView extends AppCompatActivity implements /*Style.OnS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_cinema);
 
-        /*mapView = findViewById(R.id.mapView);
+        mapView = findViewById(R.id.mapView);
         mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS, this);
         initializePointAnnotationManager();
 
         gesturesPlugin = GesturesUtils.getGestures(mapView);
-        gesturesPlugin.addOnMapClickListener(this);*/
+        gesturesPlugin.addOnMapClickListener(this);
 
         presenter = new RegisterCinemaPresenter(this);
     }
@@ -68,35 +68,36 @@ public class RegisterCinemaView extends AppCompatActivity implements /*Style.OnS
         //Long openingDateStr = Long.valueOf(etOpeningDate.getText().toString());
 
         //LocalDate openingDate = Converters.fromTimestamp(openingDateStr);
-        Cinema cinema = new Cinema(cinemaName, cinemaCapacity, cinemaRating);
+        Cinema cinema = new Cinema(cinemaName, cinemaCapacity, cinemaRating, currentPoint.latitude(), currentPoint.longitude());
         presenter.registerCinema(cinema);
     }
-   /* @Override
-    public boolean onMapClick(@NonNull Point point) {
-        pointAnnotationManager.deleteAll();
-        currentPoint = point;
-        addMarker(point.latitude(), point.longitude(), getString(R.string.here));
-        return false;
-    }*/
 
-    /*private void initializePointAnnotationManager() {
+    @Override
+    public void onStyleLoaded(@NonNull Style style) {
+
+    }
+
+    private void initializePointAnnotationManager() {
         AnnotationPlugin annotationPlugin = AnnotationPluginImplKt.getAnnotations(mapView);
         AnnotationConfig annotationConfig = new AnnotationConfig();
         pointAnnotationManager = PointAnnotationManagerKt.createPointAnnotationManager(annotationPlugin, annotationConfig);
-    }*/
+    }
 
-    /*private void addMarker(double latitude, double longitude, String title) {
+    private void addMarker(double latitude, double longitude, String title) {
         PointAnnotationOptions pointAnnotationOptions = new PointAnnotationOptions()
                 .withPoint(Point.fromLngLat(longitude, latitude))
                 .withIconImage(BitmapFactory.decodeResource(getResources(), R.mipmap.red_marker))
                 .withTextField(title);
         pointAnnotationManager.create(pointAnnotationOptions);
-    }*/
+    }
 
-    /*@Override
-    public void onStyleLoaded(@NonNull Style style) {
-
-    }*/
+    @Override
+    public boolean onMapClick(@NonNull Point point) {
+        pointAnnotationManager.deleteAll();
+        currentPoint = point;
+        addMarker(point.latitude(), point.longitude(), getString(R.string.here));
+        return false;
+    }
 
     @Override
     public void showMessage(int stringId) {

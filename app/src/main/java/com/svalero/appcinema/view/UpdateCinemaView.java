@@ -56,8 +56,8 @@ public class UpdateCinemaView extends AppCompatActivity implements UpdateCinemaC
         int cinemaCapacity = Integer.parseInt(etCapacity.getText().toString());
         float cinemaRating = Float.parseFloat(etRating.getText().toString());
 
-        Cinema updateCinema = new Cinema(cinemaName, cinemaCapacity, cinemaRating);
-        presenter.updateCinema(updateCinema.getId(), updateCinema);
+        //Cinema updateCinema = new Cinema(cinemaName, cinemaCapacity, cinemaRating);
+        //presenter.updateCinema(updateCinema.getId(), updateCinema);
     }
     @Override
     public void showSuccessMessage(String message) {

@@ -19,4 +19,5 @@
     <string name="newName">Rename</string>
     <string name="newCapacity">New Capacity</string>
     <string name="newRating">New Rating</string>
+    <string name="mapboxAccessToken">sk.eyJ1IjoiZGFuaWZhbmxlZ2Fzb3Y4IiwiYSI6ImNscHNqdWdtdTA0a3Mya21sdHhtZjV5aTgifQ.y3aXBLWYah7sRdfz1wDJ8g</string>
 </resources>
