@@ -20,4 +20,19 @@
     <string name="newCapacity">New Capacity</string>
     <string name="newRating">New Rating</string>
     <string name="mapboxAccessToken">sk.eyJ1IjoiZGFuaWZhbmxlZ2Fzb3Y4IiwiYSI6ImNscHNqdWdtdTA0a3Mya21sdHhtZjV5aTgifQ.y3aXBLWYah7sRdfz1wDJ8g</string>
+    <string name="nameUpdate">"Actual cinema name: "</string>
+    <string name="capacityUpdate">"Actual cinema capacity: "</string>
+    <string name="ratingUpdate">"Actual cinema rating: "</string>
+    <string name="updateCinemaName">New cinema name</string>
+    <string name="updateCinemaCapacity">New cinema capacity</string>
+    <string name="updateCinemaRating">New cinema rating</string>
+    <string name="succedRegisterCinema">The cinema has been successfully registered</string>
+    <string name="succedDeleteCinema">The cinema has been removed successfully</string>
+    <string name="errorDeleteCinema">Error deleting cinema</string>
+    <string name="errorRedCinema">Network error, check your connection</string>
+    <string name="succed">Success</string>
+    <string name="acept">Accept</string>
+    <string name="error">Error</string>
+    <string name="updateCinemaAtributes">Cinema data updated correctly</string>
+    <string name="errorUpdateCinemaAtributes">Error updating cinema data. Please try again.</string>
 </resources>

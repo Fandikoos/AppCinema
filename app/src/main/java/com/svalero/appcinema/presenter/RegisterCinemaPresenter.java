@@ -1,5 +1,6 @@
 package com.svalero.appcinema.presenter;
 
+import com.svalero.appcinema.R;
 import com.svalero.appcinema.contract.RegisterCinemaContract;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.model.RegisterCinemaModel;
@@ -20,7 +21,7 @@ public class RegisterCinemaPresenter implements RegisterCinemaContract.Presenter
     }
     @Override
     public void onRegisterCinemaSuccess() {
-        view.showMessage("El cine se ha registrado correctamente");
+        view.showMessage((R.string.succedRegisterCinema));
 
     }
 

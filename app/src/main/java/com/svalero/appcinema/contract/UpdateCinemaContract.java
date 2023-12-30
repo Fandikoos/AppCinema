@@ -11,8 +11,8 @@ public interface UpdateCinemaContract {
     }
 
     interface View {
-        void showSuccessMessage(String message);
-        void showErrorMessage(String message);
+        void showSuccessMessage(int message);
+        void showErrorMessage(int message);
     }
 
     interface Presenter {

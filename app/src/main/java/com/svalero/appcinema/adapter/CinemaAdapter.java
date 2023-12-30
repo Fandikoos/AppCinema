@@ -1,7 +1,6 @@
 package com.svalero.appcinema.adapter;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,9 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
-import com.svalero.appcinema.contract.CinemaListContract;
 import com.svalero.appcinema.domain.Cinema;
-import com.svalero.appcinema.presenter.CinemaListPresenter;
 import com.svalero.appcinema.view.UpdateCinemaView;
 
 import java.util.List;
@@ -31,7 +27,6 @@ import retrofit2.Response;
 public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHolder> {
 
     private List<Cinema> cinemas;
-    private CinemaListContract.Presenter presenter;
     public CinemaAdapter(List<Cinema> cinemas){
         this.cinemas = cinemas;
     }
@@ -111,34 +106,34 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()){
-                        showSuccessDialog("El cine ha sido eliminado correctamente");
+                        showSuccessDialog((R.string.succedDeleteCinema));
                     } else {
-                        showFailureDialog("Error al eliminar el cine");
+                        showFailureDialog((R.string.errorDeleteCinema));
                     }
                 }
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    showFailureDialog("Error de red, verifica tu conexión");
+                    showFailureDialog((R.string.errorRedCinema));
                 }
             });
 
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion del cine haya sido la correcta
-        private void showSuccessDialog(String message) {
+        private void showSuccessDialog(int message) {
             AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle("Éxito")
+            builder.setTitle(R.string.succed)
                     .setMessage(message)
-                    .setPositiveButton("Aceptar", (dialog, which) -> {})
+                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
                     .show();
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion del cine haya sido la correcta
-        private void showFailureDialog(String message) {
+        private void showFailureDialog(int message) {
             AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle("Error")
+            builder.setTitle(R.string.error)
                     .setMessage(message)
-                    .setPositiveButton("Aceptar", (dialog, which) -> {})
+                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
                     .show();
         }
 
@@ -146,7 +141,13 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
         private void goToUpdateCinema(View itemView){
             Intent intent = new Intent(itemView.getContext(), UpdateCinemaView.class);
             Cinema cinema = cinemas.get(getAdapterPosition());
+            intent.putExtra("cinemaName", cinema.getName());
+            intent.putExtra("cinemaCapacity", cinema.getCapacity());
+            intent.putExtra("cinemaRating", cinema.getRating());
             intent.putExtra("cinemaId", cinema.getId());
+            intent.putExtra("latitude", cinema.getLatitude());
+            intent.putExtra("longitude", cinema.getLongitude());
+            Log.i("id", String.valueOf(cinema.getId()));
             itemView.getContext().startActivity(intent);
         }
     }

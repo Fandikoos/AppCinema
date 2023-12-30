@@ -1,8 +1,10 @@
 package com.svalero.appcinema.presenter;
 
+import android.util.Log;
+
+import com.svalero.appcinema.R;
 import com.svalero.appcinema.contract.UpdateCinemaContract;
 import com.svalero.appcinema.domain.Cinema;
-import com.svalero.appcinema.model.RegisterMovieModel;
 import com.svalero.appcinema.model.UpdateCinemaModel;
 
 import retrofit2.Call;
@@ -24,16 +26,18 @@ public class UpdateCinemaPresenter implements UpdateCinemaContract.Presenter {
         model.updateCinema(cinemaId, updateCinema, new Callback<Void>() {
             @Override
             public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.i("Correcto", "Correcto");
                 if (response.isSuccessful()) {
-                    view.showSuccessMessage("Datos del cine actualizados correctamente");
+                    view.showSuccessMessage((R.string.updateCinemaAtributes));
                 } else {
-                    view.showErrorMessage("Error al actualizar los datos del cine. Por favor, inténtalo de nuevo.");
+                    view.showErrorMessage((R.string.errorUpdateCinemaAtributes));
                 }
             }
 
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
-                view.showErrorMessage("Error de red. Por favor, verifica tu conexión e inténtalo de nuevo.");
+                Log.i("Mal", "MAL");
+                view.showErrorMessage((R.string.errorRedCinema));
 
             }
         });
