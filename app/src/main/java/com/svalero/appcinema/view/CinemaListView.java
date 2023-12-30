@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.adapter.CinemaAdapter;
@@ -24,8 +23,6 @@ import com.svalero.appcinema.presenter.CinemaListPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import kotlin.collections.ArrayDeque;
 
 public class CinemaListView extends AppCompatActivity implements CinemaListContract.View {
 
@@ -61,7 +58,9 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
         goToAddCinema();
     }
 
-    //TODO HACER LA ACTION BAR E IMPLEMENTAR LOS METODOS (id=action_bar)
+    public void goToMovies(View view){
+        goToViewMovies();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -82,6 +81,11 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
 
     public void goToAddCinema(){
         Intent intent = new Intent(this, RegisterCinemaView.class);
+        startActivity(intent);
+    }
+
+    public void goToViewMovies(){
+        Intent intent = new Intent(this, MovieListView.class);
         startActivity(intent);
     }
 

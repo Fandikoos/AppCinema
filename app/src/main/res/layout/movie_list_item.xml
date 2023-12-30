@@ -3,20 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/grey"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@color/grey">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/border_background"
         android:orientation="vertical"
+        android:background="@drawable/border_background"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
         <!-- Nombre del cine -->
         <TextView
-            android:id="@+id/cinema_name"
+            android:id="@+id/movie_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -25,37 +25,35 @@
 
         <!-- Valoración del cine -->
         <TextView
-            android:id="@+id/cinema_rating"
+            android:id="@+id/movie_director"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:textSize="16sp" />
 
-        <!-- Boton de modificar -->
+        <!-- Boton de detalles -->
         <Button
-            android:id="@+id/cinema_modify"
+            android:id="@+id/movie_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="4dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/black"
-            android:onClick="goToUpdateCinema"
-            android:text="@string/modify"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:text="@string/modify" />
 
         <!-- Boton de borrado -->
         <Button
-            android:id="@+id/cinema_delete"
+            android:id="@+id/movie_delete"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/red"
-            android:text="@string/delete"
-            android:onClick="deleteCinema"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:text="@string/delete" />
 
     </LinearLayout>
 

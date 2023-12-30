@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="20dp"
-    tools:context=".view.RegisterCinemaView">
+    tools:context=".view.RegisterMovieView">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -16,46 +16,45 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/name_cinema"
+            android:id="@+id/title_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/name"
+            android:hint="@string/title"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/capacity_cinema"
+            android:id="@+id/director_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/capacity"
+            android:hint="@string/director"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/rating_cinema"
+            android:id="@+id/genre_movie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/rating"
+            android:hint="@string/genre"
             android:inputType="text" />
 
+        <EditText
+            android:id="@+id/duration_movie"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/duration"
+            android:inputType="text" />
+
+        <!--
         <com.mapbox.maps.MapView
             android:id="@+id/mapView"
             android:layout_width="match_parent"
-            android:layout_height="512dp"
+            android:layout_height="500dp"
             app:mapbox_cameraTargetLat="40.7128"
             app:mapbox_cameraTargetLng="-0.80060"
-            app:mapbox_cameraZoom="7.0"
-            app:mapbox_resourcesAccessToken="@string/mapboxAccessToken"/>
-
-        <!--
-        <EditText
-            android:id="@+id/openingDate_cinema"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="@string/openingDate"
-            android:inputType="text" />-->
+            app:mapbox_cameraZoom="7.0" />-->
     </LinearLayout>
 
     <LinearLayout
@@ -70,7 +69,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="createCinema"
+            android:onClick="createMovie"
             android:text="@string/create" />
     </LinearLayout>
 

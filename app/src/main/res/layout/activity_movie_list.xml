@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.CinemaListView">
+    tools:context=".view.MovieListView">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/cinema_list"
+        android:id="@+id/movie_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="20dp"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="-48dp" />
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_cinema_button"
+        android:id="@+id/add_movie_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="32dp"
         android:clickable="true"
-        android:onClick="addCinema"
+        android:onClick="addMovies"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <Button
-        android:id="@+id/go_to_movies"
+        android:id="@+id/go_to_cinemas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="true"
-        android:onClick="goToMovies"
-        android:text="@string/movies"
+        android:onClick="goToCinemas"
+        android:text="@string/cinemas"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="32dp"
         android:background="#FFFFFF"

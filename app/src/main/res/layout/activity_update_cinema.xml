@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".view.UpdateCinemaView">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/getTextViewCinemaName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre del cine"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextCinemaName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/updateCinemaName"
+            android:layout_below="@id/getTextViewCinemaName"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/getTextViewCinemaCapacity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capacidad del cine"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/editTextCinemaName"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextCinemaCapacity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/updateCinemaCapacity"
+            android:layout_below="@id/getTextViewCinemaRating"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/getTextViewCinemaRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Puntuación del cine"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/editTextCinemaName"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextCinemaRating"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/updateCinemaRating"
+            android:layout_below="@id/getTextViewCinemaRating"
+            android:layout_marginBottom="16dp"/>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_Update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:onClick="updateCinema"
+        android:text="@string/modify"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="16dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
