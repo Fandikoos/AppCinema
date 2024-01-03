@@ -22,27 +22,14 @@ import com.svalero.appcinema.presenter.RegisterMoviePresenter;
 
 import java.time.LocalDate;
 
-public class RegisterMovieView extends AppCompatActivity implements /*Style.OnStyleLoaded,
-        OnMapClickListener,*/ RegisterMovieContract.View {
+public class RegisterMovieView extends AppCompatActivity implements RegisterMovieContract.View {
 
-    private MapView mapView;
-    private PointAnnotationManager pointAnnotationManager;
-    private GesturesPlugin gesturesPlugin;
-    private Point currentPoint;
     private RegisterMovieContract.Presenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_movie);
-
-        /*
-        mapView = findViewById(R.id.mapView);
-        mapView.getMapboxMap().loadStyleUri(Style.MAPBOX_STREETS, this);
-        initializePointAnnotationManager();
-
-        gesturesPlugin = GesturesUtils.getGestures(mapView);
-        gesturesPlugin.addOnMapClickListener(this);*/
 
         presenter = new RegisterMoviePresenter(this);
     }
@@ -63,16 +50,6 @@ public class RegisterMovieView extends AppCompatActivity implements /*Style.OnSt
         Movie movie = new Movie(movieTitle, directorMovie, genreMovie, durationMovie/*, releaseDateMovie*/);
         presenter.registerMovie(movie);
     }
-    /*
-    @Override
-    public boolean onMapClick(@NonNull Point point) {
-        return false;
-    }
-
-    @Override
-    public void onStyleLoaded(@NonNull Style style) {
-
-    }*/
 
     @Override
     public void showMessage(int stringId) {

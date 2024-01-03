@@ -37,6 +37,9 @@
         <activity
             android:name=".view.UpdateCinemaView"
             android:exported="false"/>
+        <activity
+            android:name=".view.RegisterMovieView"
+            android:exported="false"/>
     </application>
 
 </manifest>

@@ -81,7 +81,6 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
             modifyButton.setOnClickListener(v -> goToUpdateCinema(view));
 
-            //TODO intentar hacerlo con el contract
             //Borrar un cine
             deleteButton.setOnClickListener(v -> {
                 int position = getAdapterPosition();

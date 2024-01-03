@@ -34,4 +34,6 @@
     <string name="error">Error</string>
     <string name="updateCinemaAtributes">Datos del cine actualizados correctamente</string>
     <string name="errorUpdateCinemaAtributes">Error al actualizar los datos del cine. Por favor, inténtalo de nuevo.</string>
+    <string name="succedDeleteMovie">La película ha sido eliminada correctamente</string>
+    <string name="errorDeleteMovie">Error al eliminar la película</string>
 </resources>

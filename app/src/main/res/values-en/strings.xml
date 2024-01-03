@@ -35,4 +35,6 @@
     <string name="error">Error</string>
     <string name="updateCinemaAtributes">Cinema data updated correctly</string>
     <string name="errorUpdateCinemaAtributes">Error updating cinema data. Please try again.</string>
+    <string name="succedDeleteMovie">The Movie has been removed successfully</string>
+    <string name="errorDeleteMovie">Error deleting cinema</string>
 </resources>

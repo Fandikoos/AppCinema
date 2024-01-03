@@ -34,4 +34,7 @@ public interface CinemaApiInterface {
 
     @POST("movies")
     Call<Movie> addMovie(@Body Movie movie);
+
+    @DELETE("movie/{movieId}")
+    Call<Void> deleteMovie(@Path("movieId") Long id);
 }
