@@ -1,6 +1,7 @@
 package com.svalero.appcinema.adapter;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
 import com.svalero.appcinema.domain.Movie;
+import com.svalero.appcinema.view.UpdateMovieView;
 
 import java.util.List;
 
@@ -54,7 +56,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         public TextView tvTitle;
         public TextView tvDirector;
         public Button deleteButton;
-        public Button detailsButton;
+        public Button modifyButton;
         public Button doButton;
         public View parentView;
 
@@ -67,7 +69,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             tvDirector = view.findViewById(R.id.movie_director);
             deleteButton = view.findViewById(R.id.movie_delete);
             doButton = view.findViewById(R.id.add_movie_button);
-            detailsButton = view.findViewById(R.id.movie_details);
+            modifyButton = view.findViewById(R.id.movie_details);
+
+            modifyButton.setOnClickListener(v -> goToUpdateMovie(view));
 
             //Borrar una película
             deleteButton.setOnClickListener(v -> {
@@ -98,7 +102,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    showFailureDialog(R.string.errorRedCinema);
+                    showFailureDialog(R.string.errorRed);
                 }
             });
         }
@@ -119,6 +123,18 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                     .setMessage(message)
                     .setPositiveButton(R.string.acept, (dialog, which) -> {})
                     .show();
+        }
+
+        //Método para modificar una película
+        private void goToUpdateMovie(View itemView){
+            Intent intent = new Intent(itemView.getContext(), UpdateMovieView.class);
+            Movie movie = movies.get(getAdapterPosition());
+            intent.putExtra("movieId", movie.getId());
+            intent.putExtra("movieTitle", movie.getTitle());
+            intent.putExtra("movieDirector", movie.getDirector());
+            intent.putExtra("movieGenre", movie.getGenre());
+            intent.putExtra("movieDuration", movie.getDuration());
+            itemView.getContext().startActivity(intent);
         }
     }
 }

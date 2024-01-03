@@ -29,7 +29,7 @@
     <string name="succedRegisterCinema">The cinema has been successfully registered</string>
     <string name="succedDeleteCinema">The cinema has been removed successfully</string>
     <string name="errorDeleteCinema">Error deleting cinema</string>
-    <string name="errorRedCinema">Network error, check your connection</string>
+    <string name="errorRed">Network error, check your connection</string>
     <string name="succed">Success</string>
     <string name="acept">Accept</string>
     <string name="error">Error</string>
@@ -37,4 +37,14 @@
     <string name="errorUpdateCinemaAtributes">Error updating cinema data. Please try again.</string>
     <string name="succedDeleteMovie">The Movie has been removed successfully</string>
     <string name="errorDeleteMovie">Error deleting cinema</string>
+    <string name="updateMovieAtributes">Movie data updated correctly</string>
+    <string name="errorUpdateMovieAtributes">Error updating movie data</string>
+    <string name="updatedMovieTitle">New movie title</string>
+    <string name="updatedMovieDirector">New movie director</string>
+    <string name="updatedMovieGenre">New movie genre</string>
+    <string name="updatedMovieDuration">New movie duration</string>
+    <string name="titleUpdate">"Actual movie title: "</string>
+    <string name="directorUpdate">"Actual movie director: "</string>
+    <string name="genreUpdate">"Actual movie genre: "</string>
+    <string name="durationUpdate">"Actual movie duration: "</string>
 </resources>

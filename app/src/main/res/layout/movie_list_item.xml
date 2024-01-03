@@ -40,8 +40,9 @@
             android:layout_marginTop="4dp"
             android:layout_marginRight="20dp"
             android:backgroundTint="@color/black"
-            android:textColor="#FFFFFF"
-            android:text="@string/modify" />
+            android:onClick="goToUpdateMovie"
+            android:text="@string/modify"
+            android:textColor="#FFFFFF" />
 
         <!-- Boton de borrado -->
         <Button

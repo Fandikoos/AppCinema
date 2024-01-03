@@ -37,7 +37,7 @@ public class UpdateCinemaPresenter implements UpdateCinemaContract.Presenter {
             @Override
             public void onFailure(Call<Void> call, Throwable t) {
                 Log.i("Mal", "MAL");
-                view.showErrorMessage((R.string.errorRedCinema));
+                view.showErrorMessage((R.string.errorRed));
 
             }
         });

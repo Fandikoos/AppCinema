@@ -47,7 +47,6 @@ public class UpdateCinemaView extends AppCompatActivity implements UpdateCinemaC
 
         presenter = new UpdateCinemaPresenter(this);
 
-
     }
 
     public void updateCinema (View view){

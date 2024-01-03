@@ -37,4 +37,7 @@ public interface CinemaApiInterface {
 
     @DELETE("movie/{movieId}")
     Call<Void> deleteMovie(@Path("movieId") Long id);
+
+    @PUT("movie/{movieId}")
+    Call<Void> updateMovie(@Body Movie updateMovie, @Path("movieId") long movieId);
 }

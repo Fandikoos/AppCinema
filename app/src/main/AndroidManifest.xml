@@ -40,6 +40,9 @@
         <activity
             android:name=".view.RegisterMovieView"
             android:exported="false"/>
+        <activity
+            android:name=".view.UpdateMovieView"
+            android:exported="false"/>
     </application>
 
 </manifest>
