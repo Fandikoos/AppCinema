@@ -48,4 +48,8 @@
     <string name="genreUpdate">"Actual movie genre: "</string>
     <string name="durationUpdate">"Actual movie duration: "</string>
     <string name="favourite">Favorite</string>
+    <string name="favoriteAdd">Favorite</string>
+    <string name="removeFromFavorite">Remove from favorites</string>
+    <string name="removeMovieFromFavorites">Movie removed from favorites successfully</string>
+    <string name="addMovieToFavorites">Movie added to favorites successfully</string>
 </resources>

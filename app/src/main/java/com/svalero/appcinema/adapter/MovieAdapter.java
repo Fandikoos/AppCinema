@@ -1,7 +1,5 @@
 package com.svalero.appcinema.adapter;
 
-import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.util.Log;
@@ -13,13 +11,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
 import com.svalero.appcinema.db.AppDatabase;
-import com.svalero.appcinema.db.MovieDao;
 import com.svalero.appcinema.domain.Movie;
 import com.svalero.appcinema.view.UpdateMovieView;
 
@@ -47,11 +43,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
     }
 
+
     @Override
     public void onBindViewHolder(@NonNull MovieAdapter.MovieHolder holder, int position) {
         Movie movie = movies.get(position);
 
+        //Vemos si la peli que sacamos de la api está en la bbdd de Room de favoritos con este método
         holder.validateFavs(position);
+
         holder.tvTitle.setText(movie.getTitle());
         holder.tvDirector.setText(movie.getDirector());
     }
@@ -116,11 +115,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                     Log.i("movie fav", String.valueOf(movieFav));
                     Log.i("id movie fav", String.valueOf(movieFav.getId()));
                     db.movieDao().deleteMovie(movieFav);
-                    favButton.setText("Favoritos");
+                    favButton.setText(R.string.favoriteAdd);
+                    showSuccessDialog((R.string.removeMovieFromFavorites));
                 } else {
                     //Sino entonces la insertamos en nuestra base de datos de Room y cambiamos el texto del botón
                     db.movieDao().insertMovie(movie);
-                    favButton.setText("Eliminar de favoritos");
+                    favButton.setText(R.string.removeFromFavorite);
+                    showSuccessDialog((R.string.addMovieToFavorites));
                 }
 
             });
@@ -132,7 +133,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             Movie movieFav = db.movieDao().findMovieById(movie.getId());
             Log.i("pelicula fav", String.valueOf(movieFav));
             if (movieFav != null){
-                favButton.setText("Eliminar de favoritos");
+                favButton.setText(R.string.removeFromFavorite);
             }
 
 

@@ -47,4 +47,8 @@
     <string name="genreUpdate">"Género de la pleícula actual: "</string>
     <string name="durationUpdate">"Duración de la película actual: "</string>
     <string name="favourite">Favorito</string>
+    <string name="favoriteAdd">Favoritos</string>
+    <string name="removeFromFavorite">Eliminar de favoritos</string>
+    <string name="removeMovieFromFavorites">Película quitada de favoritos correctamente</string>
+    <string name="addMovieToFavorites">Película añadida a favoritos correctamente</string>
 </resources>
