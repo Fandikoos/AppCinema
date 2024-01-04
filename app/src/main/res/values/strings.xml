@@ -28,10 +28,23 @@
     <string name="succedRegisterCinema">El cine se ha registrado correctamente</string>
     <string name="succedDeleteCinema">El cine ha sido eliminado correctamente</string>
     <string name="errorDeleteCinema">Error al eliminar el cine</string>
-    <string name="errorRedCinema">Error de red, verifica tu conexión</string>
+    <string name="errorRed">Error de red, verifica tu conexión</string>
     <string name="succed">Éxito</string>
     <string name="acept">Aceptar</string>
     <string name="error">Error</string>
     <string name="updateCinemaAtributes">Datos del cine actualizados correctamente</string>
     <string name="errorUpdateCinemaAtributes">Error al actualizar los datos del cine. Por favor, inténtalo de nuevo.</string>
+    <string name="succedDeleteMovie">La película ha sido eliminada correctamente</string>
+    <string name="errorDeleteMovie">Error al eliminar la película</string>
+    <string name="updateMovieAtributes">Datos de la película actualizados correctamente</string>
+    <string name="errorUpdateMovieAtributes">Error al actualizar los datos de la película</string>
+    <string name="updatedMovieTitle">Nuevo titulo de la película</string>
+    <string name="updatedMovieDirector">Nuevo director de la película</string>
+    <string name="updatedMovieGenre">Nuevo género de la película</string>
+    <string name="updatedMovieDuration">Nueva duración de la película</string>
+    <string name="titleUpdate">"Título de la película actual: "</string>
+    <string name="directorUpdate">"Director de la película actual: "</string>
+    <string name="genreUpdate">"Género de la pleícula actual: "</string>
+    <string name="durationUpdate">"Duración de la película actual: "</string>
+    <string name="favourite">Favorito</string>
 </resources>

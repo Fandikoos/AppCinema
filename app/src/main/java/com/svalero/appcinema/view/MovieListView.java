@@ -1,5 +1,7 @@
 package com.svalero.appcinema.view;
 
+import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,10 +13,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.adapter.MovieAdapter;
 import com.svalero.appcinema.contract.MovieListContract;
+import com.svalero.appcinema.db.AppDatabase;
 import com.svalero.appcinema.domain.Movie;
 import com.svalero.appcinema.presenter.MovieListPresenter;
 
@@ -23,6 +27,7 @@ import java.util.List;
 
 public class MovieListView extends AppCompatActivity implements MovieListContract.View {
 
+    private AppDatabase db;
     private List<Movie> movies;
     private MovieAdapter adapter;
     private MovieListContract.Presenter presenter;
@@ -31,6 +36,7 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_list);
+        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
 
         presenter = new MovieListPresenter(this);
 
@@ -39,7 +45,7 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapter = new MovieAdapter(movies);
+        adapter = new MovieAdapter(movies, db);
         recyclerView.setAdapter(adapter);
     }
 
@@ -71,9 +77,15 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
             goToAddMovie();
             return true;
         }
+        if (item.getItemId() == R.id.action_favorites){
+            viewFavoritesMovies();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     public void goToAddMovie(){
         Intent intent = new Intent(this, RegisterMovieView.class);
@@ -82,6 +94,11 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
 
     public void goToViewCinemas(){
         Intent intent = new Intent(this, CinemaListView.class);
+        startActivity(intent);
+    }
+
+    public void viewFavoritesMovies(){
+        Intent intent = new Intent(this, FavoriteMoviesView.class);
         startActivity(intent);
     }
 

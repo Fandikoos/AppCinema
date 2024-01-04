@@ -81,7 +81,6 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
             modifyButton.setOnClickListener(v -> goToUpdateCinema(view));
 
-            //TODO intentar hacerlo con el contract
             //Borrar un cine
             deleteButton.setOnClickListener(v -> {
                 int position = getAdapterPosition();
@@ -113,7 +112,7 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
                 }
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    showFailureDialog((R.string.errorRedCinema));
+                    showFailureDialog((R.string.errorRed));
                 }
             });
 
@@ -141,10 +140,10 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
         private void goToUpdateCinema(View itemView){
             Intent intent = new Intent(itemView.getContext(), UpdateCinemaView.class);
             Cinema cinema = cinemas.get(getAdapterPosition());
+            intent.putExtra("cinemaId", cinema.getId());
             intent.putExtra("cinemaName", cinema.getName());
             intent.putExtra("cinemaCapacity", cinema.getCapacity());
             intent.putExtra("cinemaRating", cinema.getRating());
-            intent.putExtra("cinemaId", cinema.getId());
             intent.putExtra("latitude", cinema.getLatitude());
             intent.putExtra("longitude", cinema.getLongitude());
             Log.i("id", String.valueOf(cinema.getId()));

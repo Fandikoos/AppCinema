@@ -3,14 +3,17 @@ package com.svalero.appcinema.domain;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(tableName = "movie")
 public class Movie {
 
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
+    private long id;
+    @ColumnInfo
     private String title;
     @ColumnInfo
     private String director;
@@ -18,6 +21,8 @@ public class Movie {
     private String genre;
     @ColumnInfo
     private int duration;
+    @ColumnInfo
+    private boolean isFav;
     /*@ColumnInfo
     private @NonNull LocalDate releaseDate;*/
 
@@ -27,6 +32,24 @@ public class Movie {
         this.genre = genre;
         this.duration = duration;
         //this.releaseDate = releaseDate;
+    }
+
+    @Ignore
+    public Movie(long id, String title, String director, String genre, int duration){
+        this.id = id;
+        this.title = title;
+        this.director = director;
+        this.genre = genre;
+        this.duration = duration;
+    }
+
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     @NonNull
@@ -63,6 +86,13 @@ public class Movie {
         this.duration = duration;
     }
 
+    public boolean isFav() {
+        return isFav;
+    }
+
+    public void setFav(boolean fav) {
+        isFav = fav;
+    }
 
     /*public LocalDate getReleaseDate() {
         return releaseDate;
