@@ -100,13 +100,16 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
             //Añadir una película a favoritos
             favButton.setOnClickListener(v -> {
-
+                //Cogemos la posición de la película en cuestión
                 int position = getAdapterPosition();
                 Movie movie = movies.get(position);
 
+                //Cogemos el texto actual del botón
                 String actualText = String.valueOf(favButton.getText());
-
                 Log.i("Texto actual", actualText);
+
+                //Si al pulsar el botón, el texto es igual eliminar de favoritos, cogemos esa movie por id y la borramos
+                //de nuestra base de datos de Room y cambiamos el texto a favoritos
                 if (actualText.equals("Eliminar de favoritos")){
                     Log.i("id movie", String.valueOf(movie.getId()));
                     Movie movieFav = db.movieDao().findMovieById(movie.getId());
@@ -115,6 +118,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                     db.movieDao().deleteMovie(movieFav);
                     favButton.setText("Favoritos");
                 } else {
+                    //Sino entonces la insertamos en nuestra base de datos de Room y cambiamos el texto del botón
                     db.movieDao().insertMovie(movie);
                     favButton.setText("Eliminar de favoritos");
                 }
@@ -122,6 +126,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             });
         }
 
+        //Método para comprobar cuales de las pelis están ya en la bbdd de Room de pelis favoritas para que ya aparezcan con el botón cambiado
         private void validateFavs(int position){
             Movie movie = movies.get(position);
             Movie movieFav = db.movieDao().findMovieById(movie.getId());

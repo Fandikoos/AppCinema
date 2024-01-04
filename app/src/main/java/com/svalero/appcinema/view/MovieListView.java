@@ -64,10 +64,6 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
         goToViewCinemas();
     }
 
-    public void goToFavoriteMovies(View view){
-        viewFavoritesMovies();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.action_bar_movies, menu);
@@ -81,9 +77,15 @@ public class MovieListView extends AppCompatActivity implements MovieListContrac
             goToAddMovie();
             return true;
         }
+        if (item.getItemId() == R.id.action_favorites){
+            viewFavoritesMovies();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     public void goToAddMovie(){
         Intent intent = new Intent(this, RegisterMovieView.class);

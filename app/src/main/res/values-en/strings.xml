@@ -47,5 +47,5 @@
     <string name="directorUpdate">"Actual movie director: "</string>
     <string name="genreUpdate">"Actual movie genre: "</string>
     <string name="durationUpdate">"Actual movie duration: "</string>
-    <string name="favourite">Favourite</string>
+    <string name="favourite">Favorite</string>
 </resources>
