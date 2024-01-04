@@ -30,13 +30,26 @@
         android:id="@+id/go_to_cinemas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="44dp"
+        android:background="#FFFFFF"
         android:clickable="true"
         android:onClick="goToCinemas"
         android:text="@string/cinemas"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
-        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/favorite_movie_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="164dp"
+        android:layout_marginBottom="36dp"
+        android:clickable="true"
+        android:onClick="goToFavoriteMovies"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

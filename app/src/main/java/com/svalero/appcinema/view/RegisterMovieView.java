@@ -1,5 +1,7 @@
 package com.svalero.appcinema.view;
 
+import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -7,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.mapbox.geojson.Point;
 import com.mapbox.maps.MapView;
@@ -17,6 +20,7 @@ import com.mapbox.maps.plugin.gestures.GesturesUtils;
 import com.mapbox.maps.plugin.gestures.OnMapClickListener;
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.contract.RegisterMovieContract;
+import com.svalero.appcinema.db.AppDatabase;
 import com.svalero.appcinema.domain.Movie;
 import com.svalero.appcinema.presenter.RegisterMoviePresenter;
 
@@ -24,6 +28,7 @@ import java.time.LocalDate;
 
 public class RegisterMovieView extends AppCompatActivity implements RegisterMovieContract.View {
 
+    private AppDatabase db;
     private RegisterMovieContract.Presenter presenter;
 
     @Override
@@ -31,6 +36,7 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_movie);
 
+        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
         presenter = new RegisterMoviePresenter(this);
     }
 

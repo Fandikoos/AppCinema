@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 
 import java.time.LocalDate;
 
-@Entity
+@Entity(tableName = "movie")
 public class Movie {
 
     @PrimaryKey(autoGenerate = true)
@@ -21,6 +21,8 @@ public class Movie {
     private String genre;
     @ColumnInfo
     private int duration;
+    @ColumnInfo
+    private boolean isFav;
     /*@ColumnInfo
     private @NonNull LocalDate releaseDate;*/
 
@@ -84,6 +86,13 @@ public class Movie {
         this.duration = duration;
     }
 
+    public boolean isFav() {
+        return isFav;
+    }
+
+    public void setFav(boolean fav) {
+        isFav = fav;
+    }
 
     /*public LocalDate getReleaseDate() {
         return releaseDate;

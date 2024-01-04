@@ -15,7 +15,7 @@
         tools:layout_editor_absoluteY="1dp">
 
         <TextView
-            android:id="@+id/movie_title"
+            android:id="@+id/movie_fav_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -23,7 +23,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/movie_director"
+            android:id="@+id/movie_fav_director"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -51,21 +51,7 @@
             android:backgroundTint="@color/red"
             android:textColor="#FFFFFF"
             android:text="@string/delete" />
-
-        <Button
-            android:id="@+id/movie_fav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="10dp"
-            android:backgroundTint="@color/yellow"
-            android:textColor="#FFFFFF"
-            android:text="@string/favourite" />
-
-
-
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

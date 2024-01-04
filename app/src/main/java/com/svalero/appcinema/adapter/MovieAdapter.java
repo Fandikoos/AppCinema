@@ -1,7 +1,10 @@
 package com.svalero.appcinema.adapter;
 
+import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
+
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +13,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
+import com.svalero.appcinema.db.AppDatabase;
+import com.svalero.appcinema.db.MovieDao;
 import com.svalero.appcinema.domain.Movie;
 import com.svalero.appcinema.view.UpdateMovieView;
 
@@ -25,10 +31,12 @@ import retrofit2.Response;
 
 public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder> {
 
+    private AppDatabase db;
     private List<Movie> movies;
 
-    public MovieAdapter(List<Movie> movies){
+    public MovieAdapter(List<Movie> movies, AppDatabase db){
         this.movies = movies;
+        this.db = db;
     }
     @NonNull
     @Override
@@ -36,12 +44,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.movie_list_item, parent, false);
         return new MovieHolder(view);
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull MovieAdapter.MovieHolder holder, int position) {
         Movie movie = movies.get(position);
 
+        holder.validateFavs(position);
         holder.tvTitle.setText(movie.getTitle());
         holder.tvDirector.setText(movie.getDirector());
     }
@@ -59,6 +69,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         public Button modifyButton;
         public Button doButton;
         public View parentView;
+        public Button favButton;
 
 
         public MovieHolder(@NonNull View view) {
@@ -70,6 +81,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             deleteButton = view.findViewById(R.id.movie_delete);
             doButton = view.findViewById(R.id.add_movie_button);
             modifyButton = view.findViewById(R.id.movie_details);
+            favButton = view.findViewById(R.id.movie_fav);
 
             modifyButton.setOnClickListener(v -> goToUpdateMovie(view));
 
@@ -85,6 +97,40 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 //La borramos en la api
                 deleteMovieFromApi(movie.getId());
             });
+
+            //Añadir una película a favoritos
+            favButton.setOnClickListener(v -> {
+
+                int position = getAdapterPosition();
+                Movie movie = movies.get(position);
+
+                String actualText = String.valueOf(favButton.getText());
+
+                Log.i("Texto actual", actualText);
+                if (actualText.equals("Eliminar de favoritos")){
+                    Log.i("id movie", String.valueOf(movie.getId()));
+                    Movie movieFav = db.movieDao().findMovieById(movie.getId());
+                    Log.i("movie fav", String.valueOf(movieFav));
+                    Log.i("id movie fav", String.valueOf(movieFav.getId()));
+                    db.movieDao().deleteMovie(movieFav);
+                    favButton.setText("Favoritos");
+                } else {
+                    db.movieDao().insertMovie(movie);
+                    favButton.setText("Eliminar de favoritos");
+                }
+
+            });
+        }
+
+        private void validateFavs(int position){
+            Movie movie = movies.get(position);
+            Movie movieFav = db.movieDao().findMovieById(movie.getId());
+            Log.i("pelicula fav", String.valueOf(movieFav));
+            if (movieFav != null){
+                favButton.setText("Eliminar de favoritos");
+            }
+
+
         }
 
         private void deleteMovieFromApi(long movieId){
