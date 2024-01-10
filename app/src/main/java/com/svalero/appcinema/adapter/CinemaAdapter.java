@@ -18,6 +18,7 @@ import com.svalero.appcinema.api.CinemaApiInterface;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.view.UpdateCinemaView;
 
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -47,6 +48,8 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
         holder.tvName.setText(cinema.getName());
         holder.tvRating.setText(String.valueOf(cinema.getRating()));
+        holder.tvLatitude.setText(String.valueOf(cinema.getLatitude()));
+        holder.tvLongitude.setText(String.valueOf(cinema.getLongitude()));
 
     }
 
@@ -61,6 +64,8 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
         public TextView tvName;
         public TextView tvRating;
+        public TextView tvLatitude;
+        public TextView tvLongitude;
         public Button deleteButton;
         public Button modifyButton;
         public Button doButton;
@@ -73,6 +78,8 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
             tvName = view.findViewById(R.id.cinema_name);
             tvRating = view.findViewById(R.id.cinema_rating);
+            tvLatitude = view.findViewById(R.id.cinema_latitude);
+            tvLongitude = view.findViewById(R.id.cinema_longitude);
             modifyButton = view.findViewById(R.id.cinema_modify);
             deleteButton = view.findViewById(R.id.cinema_delete);
             doButton = view.findViewById(R.id.add_cinema_button);

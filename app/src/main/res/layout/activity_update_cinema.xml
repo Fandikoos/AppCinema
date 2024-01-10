@@ -69,6 +69,44 @@
             android:layout_below="@id/getTextViewCinemaRating"
             android:layout_marginBottom="16dp"/>
 
+        <TextView
+            android:id="@+id/getTextViewCinemaLatitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/latitud_del_cine"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/editTextCinemaName"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextCinemaLatitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nueva_latitud_del_cine"
+            android:layout_below="@id/getTextViewCinemaRating"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:id="@+id/getTextViewCinemaLongitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/longitud_del_cine"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_below="@id/editTextCinemaName"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"/>
+
+        <EditText
+            android:id="@+id/editTextCinemaLongitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/nueva_longitud_del_cine"
+            android:layout_below="@id/getTextViewCinemaRating"
+            android:layout_marginBottom="16dp"/>
+
     </LinearLayout>
 
     <Button
