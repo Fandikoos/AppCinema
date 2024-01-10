@@ -5,6 +5,7 @@ import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -38,6 +39,9 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
 
         db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
         presenter = new RegisterMoviePresenter(this);
+
+        ImageView imageView = findViewById(R.id.movieCartel);
+        imageView.setImageResource(R.drawable.cartelera);
     }
 
     public void createMovie(View view){
@@ -45,6 +49,7 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
         EditText etDirector = findViewById(R.id.director_movie);
         EditText etGenre = findViewById(R.id.genre_movie);
         EditText etDuration = findViewById(R.id.duration_movie);
+
         //EditText etRelaseDate = findViewById(R.id.releaseDate_movie);
 
         String movieTitle = etTitle.getText().toString();

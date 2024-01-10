@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -48,7 +49,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     public void onBindViewHolder(@NonNull MovieAdapter.MovieHolder holder, int position) {
         Movie movie = movies.get(position);
 
-        //Vemos si la peli que sacamos de la api está en la bbdd de Room de favoritos con este método
+        //Vemos si la peli que sacamos de la api está en la bbdd de Room de favoritos con el método
         holder.validateFavs(position);
 
         holder.tvTitle.setText(movie.getTitle());

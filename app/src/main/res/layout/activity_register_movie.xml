@@ -47,14 +47,14 @@
             android:hint="@string/duration"
             android:inputType="text" />
 
-        <!--
-        <com.mapbox.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            app:mapbox_cameraTargetLat="40.7128"
-            app:mapbox_cameraTargetLng="-0.80060"
-            app:mapbox_cameraZoom="7.0" />-->
+        <ImageView
+            android:id="@+id/movieCartel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/cartelera" />
+
+
     </LinearLayout>
 
     <LinearLayout
