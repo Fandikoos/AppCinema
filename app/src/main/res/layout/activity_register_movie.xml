@@ -8,6 +8,7 @@
     tools:context=".view.RegisterMovieView">
 
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -47,14 +48,14 @@
             android:hint="@string/duration"
             android:inputType="text" />
 
-        <!--
-        <com.mapbox.maps.MapView
-            android:id="@+id/mapView"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            app:mapbox_cameraTargetLat="40.7128"
-            app:mapbox_cameraTargetLng="-0.80060"
-            app:mapbox_cameraZoom="7.0" />-->
+        <ImageView
+            android:id="@+id/movieCartel"
+            android:layout_width="wrap_content"
+            android:layout_height="451dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/cartelera" />
+
+
     </LinearLayout>
 
     <LinearLayout
@@ -64,10 +65,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="1dp">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="10dp"
+            android:onClick="goBackToListMovies"
+            android:src="@drawable/atras"
+            app:backgroundTint="#2ECF12"
+            app:layout_constraintBottom_toTopOf="@+id/bt_Update_Movie"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
         <Button
             android:id="@+id/create_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="105dp"
             android:layout_weight="1"
             android:onClick="createMovie"
             android:text="@string/create" />

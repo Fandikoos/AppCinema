@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.adapter.CinemaAdapter;
 import com.svalero.appcinema.contract.CinemaListContract;
@@ -91,7 +92,6 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
 
     @Override
     public void listCinemas(List<Cinema> cinemas) {
-        Log.d("CinemaListView", "listCinemas Called");
         this.cinemas.clear();
         this.cinemas.addAll(cinemas);
         adapter.notifyDataSetChanged();

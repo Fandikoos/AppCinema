@@ -1,5 +1,6 @@
 package com.svalero.appcinema.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.util.Log;
@@ -12,11 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
 import com.svalero.appcinema.domain.Cinema;
 import com.svalero.appcinema.view.UpdateCinemaView;
+
 
 import java.util.List;
 
@@ -40,13 +43,16 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull CinemaHolder holder, int position) {
         Cinema cinema = cinemas.get(position);
         Log.d("Prueba", cinema.getName());
 
-        holder.tvName.setText(cinema.getName());
-        holder.tvRating.setText(String.valueOf(cinema.getRating()));
+        holder.tvName.setText(holder.itemView.getContext().getString(R.string.nameList) + cinema.getName());
+        holder.tvRating.setText(holder.itemView.getContext().getString(R.string.ratingList) + cinema.getRating());
+        holder.tvLatitude.setText(holder.itemView.getContext().getString(R.string.latitudeList) + cinema.getLatitude());
+        holder.tvLongitude.setText(holder.itemView.getContext().getString(R.string.longitudeList) + cinema.getLongitude());
 
     }
 
@@ -61,6 +67,8 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
         public TextView tvName;
         public TextView tvRating;
+        public TextView tvLatitude;
+        public TextView tvLongitude;
         public Button deleteButton;
         public Button modifyButton;
         public Button doButton;
@@ -73,6 +81,8 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
             tvName = view.findViewById(R.id.cinema_name);
             tvRating = view.findViewById(R.id.cinema_rating);
+            tvLatitude = view.findViewById(R.id.cinema_latitude);
+            tvLongitude = view.findViewById(R.id.cinema_longitude);
             modifyButton = view.findViewById(R.id.cinema_modify);
             deleteButton = view.findViewById(R.id.cinema_delete);
             doButton = view.findViewById(R.id.add_cinema_button);
@@ -105,35 +115,41 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()){
-                        showSuccessDialog((R.string.succedDeleteCinema));
+                        showSuccessSnackbar(itemView, (R.string.succedDeleteCinema));
                     } else {
-                        showFailureDialog((R.string.errorDeleteCinema));
+                        showFailureSnackbar(itemView, (R.string.errorDeleteCinema));
                     }
                 }
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    showFailureDialog((R.string.errorRed));
+                    showFailureSnackbar(itemView, (R.string.errorRed));
                 }
             });
 
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion del cine haya sido la correcta
-        private void showSuccessDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.succed)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showSuccessSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.acept, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion del cine haya sido la correcta
-        private void showFailureDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.error)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showFailureSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.acept, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Metodo de ir a modifica un cine

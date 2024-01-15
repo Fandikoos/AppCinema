@@ -72,4 +72,9 @@ public class UpdateMovieView extends AppCompatActivity implements UpdateMovieCon
     public void showErrorMessage(int message) {
         Toast.makeText(this, getResources().getString(message), Toast.LENGTH_LONG).show();
     }
+
+    public void goBackToListMovies(View itemView){
+        Intent intent = new Intent(itemView.getContext(), MovieListView.class);
+        itemView.getContext().startActivity(intent);
+    }
 }

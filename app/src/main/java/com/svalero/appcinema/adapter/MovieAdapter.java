@@ -1,7 +1,6 @@
 package com.svalero.appcinema.adapter;
 
-import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
-
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.util.Log;
@@ -13,13 +12,12 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.room.Room;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
 import com.svalero.appcinema.db.AppDatabase;
-import com.svalero.appcinema.db.MovieDao;
 import com.svalero.appcinema.domain.Movie;
 import com.svalero.appcinema.view.UpdateMovieView;
 
@@ -47,13 +45,17 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
 
     }
 
+
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MovieAdapter.MovieHolder holder, int position) {
         Movie movie = movies.get(position);
 
+        //Vemos si la peli que sacamos de la api está en la bbdd de Room de favoritos con el método
         holder.validateFavs(position);
-        holder.tvTitle.setText(movie.getTitle());
-        holder.tvDirector.setText(movie.getDirector());
+
+        holder.tvTitle.setText(holder.itemView.getContext().getString(R.string.titleList) + movie.getTitle());
+        holder.tvDirector.setText(holder.itemView.getContext().getString(R.string.directorList) + movie.getDirector());
     }
 
     @Override
@@ -116,11 +118,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                     Log.i("movie fav", String.valueOf(movieFav));
                     Log.i("id movie fav", String.valueOf(movieFav.getId()));
                     db.movieDao().deleteMovie(movieFav);
-                    favButton.setText("Favoritos");
+                    favButton.setText(R.string.favoriteAdd);
+                    showSuccessSnackbar(view, (R.string.removeMovieFromFavorites));
                 } else {
                     //Sino entonces la insertamos en nuestra base de datos de Room y cambiamos el texto del botón
                     db.movieDao().insertMovie(movie);
-                    favButton.setText("Eliminar de favoritos");
+                    favButton.setText(R.string.removeFromFavorite);
+                    showSuccessSnackbar(view, (R.string.addMovieToFavorites));
                 }
 
             });
@@ -132,7 +136,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
             Movie movieFav = db.movieDao().findMovieById(movie.getId());
             Log.i("pelicula fav", String.valueOf(movieFav));
             if (movieFav != null){
-                favButton.setText("Eliminar de favoritos");
+                favButton.setText(R.string.removeFromFavorite);
             }
 
 
@@ -145,35 +149,41 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()){
-                        showSuccessDialog((R.string.succedDeleteMovie));
+                        showSuccessSnackbar(itemView, (R.string.succedDeleteMovie));
                     } else {
-                        showFailureDialog((R.string.errorDeleteMovie));
+                        showFailureSnackbar(itemView, (R.string.errorDeleteMovie));
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    showFailureDialog(R.string.errorRed);
+                    showFailureSnackbar(itemView, R.string.errorRed);
                 }
             });
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion de la película haya sido la correcta
-        private void showSuccessDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.succed)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showSuccessSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.acept, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion de la película haya sido la correcta
-        private void showFailureDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.error)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showFailureSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.error, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Método para modificar una película

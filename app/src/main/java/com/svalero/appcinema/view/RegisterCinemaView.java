@@ -1,6 +1,7 @@
 package com.svalero.appcinema.view;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
@@ -107,5 +108,10 @@ public class RegisterCinemaView extends AppCompatActivity implements Style.OnSty
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    public void goBackToListCinema(View itemView){
+        Intent intent = new Intent(itemView.getContext(), CinemaListView.class);
+        itemView.getContext().startActivity(intent);
     }
 }

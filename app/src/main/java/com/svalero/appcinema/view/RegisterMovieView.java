@@ -2,9 +2,11 @@ package com.svalero.appcinema.view;
 
 import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -36,8 +38,11 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_movie);
 
-        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
+        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().addMigrations(AppDatabase.MIGRATION_1_2).build();
         presenter = new RegisterMoviePresenter(this);
+
+        ImageView imageView = findViewById(R.id.movieCartel);
+        imageView.setImageResource(R.drawable.cartelera);
     }
 
     public void createMovie(View view){
@@ -45,6 +50,7 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
         EditText etDirector = findViewById(R.id.director_movie);
         EditText etGenre = findViewById(R.id.genre_movie);
         EditText etDuration = findViewById(R.id.duration_movie);
+
         //EditText etRelaseDate = findViewById(R.id.releaseDate_movie);
 
         String movieTitle = etTitle.getText().toString();
@@ -65,5 +71,10 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message,Toast.LENGTH_LONG).show();
+    }
+
+    public void goBackToListMovies(View itemView){
+        Intent intent = new Intent(itemView.getContext(), MovieListView.class);
+        itemView.getContext().startActivity(intent);
     }
 }

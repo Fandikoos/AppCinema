@@ -23,6 +23,8 @@ public class Movie {
     private int duration;
     @ColumnInfo
     private boolean isFav;
+    @ColumnInfo
+    private String description;
     /*@ColumnInfo
     private @NonNull LocalDate releaseDate;*/
 
@@ -41,6 +43,13 @@ public class Movie {
         this.director = director;
         this.genre = genre;
         this.duration = duration;
+    }
+
+    @Ignore
+    public Movie(String title, String director, String description){
+        this.title = title;
+        this.director = director;
+        this.description = description;
     }
 
 
@@ -92,6 +101,15 @@ public class Movie {
 
     public void setFav(boolean fav) {
         isFav = fav;
+    }
+
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     /*public LocalDate getReleaseDate() {

@@ -31,6 +31,22 @@
             android:layout_margin="10dp"
             android:textSize="16sp" />
 
+        <!-- Latitud del cine -->
+        <TextView
+            android:id="@+id/cinema_latitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="16sp" />
+
+        <!-- Longitud del cine -->
+        <TextView
+            android:id="@+id/cinema_longitude"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textSize="16sp" />
+
         <!-- Boton de modificar -->
         <Button
             android:id="@+id/cinema_modify"

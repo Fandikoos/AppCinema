@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.room.Room;
 
 import com.svalero.appcinema.R;
+import com.svalero.appcinema.adapter.FavoriteMovieAdapter;
 import com.svalero.appcinema.adapter.MovieAdapter;
 import com.svalero.appcinema.db.AppDatabase;
 import com.svalero.appcinema.db.MovieDao;
@@ -26,14 +27,14 @@ public class FavoriteMoviesView extends AppCompatActivity {
 
     private List<Movie> favoriteMovies;
 
-    private MovieAdapter adapter;
+    private FavoriteMovieAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_movies);
         favoriteMovies = new ArrayList<>();
-        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
+        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().addMigrations(AppDatabase.MIGRATION_1_2).build();
         MovieDao movieDao = db.movieDao();
         favoriteMovies = movieDao.getFavoriteMovies();
 
@@ -43,9 +44,14 @@ public class FavoriteMoviesView extends AppCompatActivity {
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         Log.i("Movie", String.valueOf(favoriteMovies.size()));
-        adapter = new MovieAdapter(favoriteMovies, db);
+        adapter = new FavoriteMovieAdapter(favoriteMovies);
         recyclerView.setAdapter(adapter);
 
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
     }
 
 }

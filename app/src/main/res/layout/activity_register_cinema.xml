@@ -58,6 +58,7 @@
             android:inputType="text" />-->
     </LinearLayout>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,13 +66,27 @@
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="1dp">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="10dp"
+            android:onClick="goBackToListCinema"
+            android:src="@drawable/atras"
+            app:backgroundTint="#2ECF12"
+            app:layout_constraintBottom_toTopOf="@+id/bt_Update"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
         <Button
             android:id="@+id/create_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:onClick="createCinema"
             android:text="@string/create" />
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

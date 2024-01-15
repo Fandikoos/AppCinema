@@ -23,6 +23,8 @@
     <string name="nameUpdate">"Actual cinema name: "</string>
     <string name="capacityUpdate">"Actual cinema capacity: "</string>
     <string name="ratingUpdate">"Actual cinema rating: "</string>
+    <string name="latitudeUpdate">"Actual cinema latitude: "</string>
+    <string name="longitudeUpdate">"Actual cinema longitude: "</string>
     <string name="updateCinemaName">New cinema name</string>
     <string name="updateCinemaCapacity">New cinema capacity</string>
     <string name="updateCinemaRating">New cinema rating</string>
@@ -48,4 +50,24 @@
     <string name="genreUpdate">"Actual movie genre: "</string>
     <string name="durationUpdate">"Actual movie duration: "</string>
     <string name="favourite">Favorite</string>
+    <string name="favoriteAdd">Favorite</string>
+    <string name="removeFromFavorite">Remove from favorites</string>
+    <string name="removeMovieFromFavorites">Movie removed from favorites successfully</string>
+    <string name="addMovieToFavorites">Movie added to favorites successfully</string>
+    <string name="longitud_del_cine">Longitud del cine</string>
+    <string name="nueva_latitud_del_cine">Nueva latitud del cine</string>
+    <string name="latitud_del_cine">Latitud del cine</string>
+    <string name="nueva_longitud_del_cine">Nueva longitud del cine</string>
+    <string name="nameList">"Name: "</string>
+    <string name="ratingList">"Rating: "</string>
+    <string name="latitudeList">"Latitude: "</string>
+    <string name="longitudeList">"Longitude: "</string>
+    <string name="titleList">"Title: "</string>
+    <string name="directorList">"Director: "</string>
+    <string name="favoritesTitle">Favorites List</string>
+    <string name="noDescription">Without Description</string>
+    <string name="newDescription">New description</string>
+    <string name="actualDescription">"Actual description: "</string>
+    <string name="updateFavMovie">Updated movie description</string>
+    <string name="editDescription">Edit description of movie</string>
 </resources>

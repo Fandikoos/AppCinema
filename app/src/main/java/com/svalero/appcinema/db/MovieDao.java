@@ -21,5 +21,6 @@ public interface MovieDao {
     List<Movie> getFavoriteMovies();
     @Query("SELECT * FROM movie WHERE id = :id")
     Movie findMovieById(long id);
-
+    @Update
+    void updateFavMovie(Movie movie);
 }
