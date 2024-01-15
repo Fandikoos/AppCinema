@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
@@ -118,12 +119,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                     Log.i("id movie fav", String.valueOf(movieFav.getId()));
                     db.movieDao().deleteMovie(movieFav);
                     favButton.setText(R.string.favoriteAdd);
-                    showSuccessDialog((R.string.removeMovieFromFavorites));
+                    showSuccessSnackbar(view, (R.string.removeMovieFromFavorites));
                 } else {
                     //Sino entonces la insertamos en nuestra base de datos de Room y cambiamos el texto del botón
                     db.movieDao().insertMovie(movie);
                     favButton.setText(R.string.removeFromFavorite);
-                    showSuccessDialog((R.string.addMovieToFavorites));
+                    showSuccessSnackbar(view, (R.string.addMovieToFavorites));
                 }
 
             });
@@ -148,35 +149,41 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()){
-                        showSuccessDialog((R.string.succedDeleteMovie));
+                        showSuccessSnackbar(itemView, (R.string.succedDeleteMovie));
                     } else {
-                        showFailureDialog((R.string.errorDeleteMovie));
+                        showFailureSnackbar(itemView, (R.string.errorDeleteMovie));
                     }
                 }
 
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    showFailureDialog(R.string.errorRed);
+                    showFailureSnackbar(itemView, R.string.errorRed);
                 }
             });
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion de la película haya sido la correcta
-        private void showSuccessDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.succed)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showSuccessSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.acept, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion de la película haya sido la correcta
-        private void showFailureDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.error)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showFailureSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.error, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Método para modificar una película

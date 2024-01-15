@@ -41,7 +41,7 @@ public class FavoriteMovieAdapter extends RecyclerView.Adapter<FavoriteMovieAdap
 
         holder.tvTitle.setText(holder.itemView.getContext().getString(R.string.titleList) + movie.getTitle());
         holder.tvDirector.setText(holder.itemView.getContext().getString(R.string.directorList) + movie.getDirector());
-        holder.tvDescription.setText(holder.itemView.getContext().getString(R.string.noDescription) + movie.getDescription());
+        holder.tvDescription.setText(movie.getDescription());
     }
 
     @Override

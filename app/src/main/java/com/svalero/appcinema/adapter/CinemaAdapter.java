@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.api.CinemaApi;
 import com.svalero.appcinema.api.CinemaApiInterface;
@@ -114,35 +115,41 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
                 @Override
                 public void onResponse(Call<Void> call, Response<Void> response) {
                     if (response.isSuccessful()){
-                        showSuccessDialog((R.string.succedDeleteCinema));
+                        showSuccessSnackbar(itemView, (R.string.succedDeleteCinema));
                     } else {
-                        showFailureDialog((R.string.errorDeleteCinema));
+                        showFailureSnackbar(itemView, (R.string.errorDeleteCinema));
                     }
                 }
                 @Override
                 public void onFailure(Call<Void> call, Throwable t) {
-                    showFailureDialog((R.string.errorRed));
+                    showFailureSnackbar(itemView, (R.string.errorRed));
                 }
             });
 
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion del cine haya sido la correcta
-        private void showSuccessDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.succed)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showSuccessSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.acept, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Metodo para que se de una respuesta al usuario cuando la eliminacion del cine haya sido la correcta
-        private void showFailureDialog(int message) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(parentView.getContext());
-            builder.setTitle(R.string.error)
-                    .setMessage(message)
-                    .setPositiveButton(R.string.acept, (dialog, which) -> {})
-                    .show();
+        private void showFailureSnackbar(View view, int message) {
+            Snackbar snackbar = Snackbar.make(view, message, Snackbar.LENGTH_SHORT);
+            snackbar.setAction(R.string.acept, new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    // Acción al hacer clic en el botón de acción (puedes dejar esto vacío si no necesitas ninguna acción)
+                }
+            });
+            snackbar.show();
         }
 
         //Metodo de ir a modifica un cine

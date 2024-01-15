@@ -2,6 +2,7 @@ package com.svalero.appcinema.view;
 
 import static com.svalero.appcinema.util.Constants.DATABASE_NAME;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -70,5 +71,10 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
     @Override
     public void showMessage(String message) {
         Toast.makeText(this, message,Toast.LENGTH_LONG).show();
+    }
+
+    public void goBackToListMovies(View itemView){
+        Intent intent = new Intent(itemView.getContext(), MovieListView.class);
+        itemView.getContext().startActivity(intent);
     }
 }

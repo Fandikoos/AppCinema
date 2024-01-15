@@ -8,6 +8,7 @@
     tools:context=".view.UpdateCinemaView">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,106 +19,129 @@
             android:id="@+id/getTextViewCinemaName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:text="Nombre del cine"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextCinemaName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/updateCinemaName"
             android:layout_below="@id/getTextViewCinemaName"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/updateCinemaName" />
 
         <TextView
             android:id="@+id/getTextViewCinemaCapacity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Capacidad del cine"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_below="@id/editTextCinemaName"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:text="Capacidad del cine"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextCinemaCapacity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/updateCinemaCapacity"
             android:layout_below="@id/getTextViewCinemaRating"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/updateCinemaCapacity" />
 
         <TextView
             android:id="@+id/getTextViewCinemaRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Puntuación del cine"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_below="@id/editTextCinemaName"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:text="Puntuación del cine"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextCinemaRating"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/updateCinemaRating"
             android:layout_below="@id/getTextViewCinemaRating"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/updateCinemaRating" />
 
         <TextView
             android:id="@+id/getTextViewCinemaLatitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/latitud_del_cine"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_below="@id/editTextCinemaName"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:text="@string/latitud_del_cine"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextCinemaLatitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nueva_latitud_del_cine"
             android:layout_below="@id/getTextViewCinemaRating"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/nueva_latitud_del_cine" />
 
         <TextView
             android:id="@+id/getTextViewCinemaLongitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/longitud_del_cine"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_below="@id/editTextCinemaName"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:text="@string/longitud_del_cine"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextCinemaLongitude"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/nueva_longitud_del_cine"
             android:layout_below="@id/getTextViewCinemaRating"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/nueva_longitud_del_cine" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/bt_Update"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:onClick="updateCinema"
-        android:text="@string/modify"
-        android:textColor="#FFFFFF"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="1dp">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:onClick="goBackToListCinema"
+            android:src="@drawable/atras"
+            app:backgroundTint="#2ECF12"
+            app:layout_constraintBottom_toTopOf="@+id/bt_Update"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/bt_Update"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black"
+            android:onClick="updateCinema"
+            android:text="@string/modify"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

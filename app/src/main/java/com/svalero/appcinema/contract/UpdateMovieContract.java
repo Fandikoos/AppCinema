@@ -1,5 +1,7 @@
 package com.svalero.appcinema.contract;
 
+import android.view.View;
+
 import com.svalero.appcinema.domain.Movie;
 
 import retrofit2.Callback;

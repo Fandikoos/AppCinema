@@ -8,6 +8,7 @@
     tools:context=".view.UpdateMovieView">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -18,83 +19,106 @@
             android:id="@+id/getTextViewMovieTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="8dp"/>
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextMovieTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/updatedMovieTitle"
             android:layout_below="@id/getTextViewMovieTitle"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/updatedMovieTitle" />
 
         <TextView
             android:id="@+id/getTextViewMovieDirector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_below="@id/editTextMovieTitle"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextMovieDirector"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/updatedMovieDirector"
             android:layout_below="@id/getTextViewMovieGenre"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/updatedMovieDirector" />
 
         <TextView
             android:id="@+id/getTextViewMovieGenre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_below="@id/editTextMovieTitle"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextMovieGenre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/updatedMovieGenre"
             android:layout_below="@id/getTextViewMovieGenre"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/updatedMovieGenre" />
 
         <TextView
             android:id="@+id/getTextViewMovieDuration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_below="@id/editTextMovieTitle"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="8dp"/>
+            android:layout_marginBottom="8dp"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/editTextMovieDuration"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/updatedMovieDuration"
             android:layout_below="@id/getTextViewMovieDuration"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="16dp"
+            android:hint="@string/updatedMovieDuration" />
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/bt_Update_Movie"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
-        android:onClick="updateMovie"
-        android:text="@string/modify"
-        android:textColor="#FFFFFF"
+        android:layout_height="55dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="1dp">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:onClick="goBackToListMovies"
+            android:src="@drawable/atras"
+            app:backgroundTint="#2ECF12"
+            app:layout_constraintBottom_toTopOf="@+id/bt_Update_Movie"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+            android:layout_marginEnd="10dp"/>
+
+        <Button
+            android:id="@+id/bt_Update_Movie"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/black"
+            android:onClick="updateMovie"
+            android:text="@string/modify"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

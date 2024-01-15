@@ -69,4 +69,5 @@
     <string name="newDescription">New description</string>
     <string name="actualDescription">"Actual description: "</string>
     <string name="updateFavMovie">Updated movie description</string>
+    <string name="editDescription">Edit description of movie</string>
 </resources>

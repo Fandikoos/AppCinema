@@ -1,5 +1,7 @@
 package com.svalero.appcinema.presenter;
 
+import android.view.View;
+
 import com.svalero.appcinema.R;
 import com.svalero.appcinema.contract.UpdateMovieContract;
 import com.svalero.appcinema.domain.Movie;

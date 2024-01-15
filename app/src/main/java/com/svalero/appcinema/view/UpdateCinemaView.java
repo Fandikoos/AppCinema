@@ -89,4 +89,9 @@ public class UpdateCinemaView extends AppCompatActivity implements UpdateCinemaC
     public void showErrorMessage(int message) {
         Toast.makeText(this, getResources().getString(message),Toast.LENGTH_LONG).show();
     }
+
+    public void goBackToListCinema(View itemView){
+        Intent intent = new Intent(itemView.getContext(), CinemaListView.class);
+        itemView.getContext().startActivity(intent);
+    }
 }

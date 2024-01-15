@@ -67,4 +67,9 @@ public class UpdateFavoriteMoviesView extends AppCompatActivity {
         });
         snackbar.show();
     }
+
+    public void goBackToListFavoriteMovies(View itemView){
+        Intent intent = new Intent(itemView.getContext(), FavoriteMoviesView.class);
+        itemView.getContext().startActivity(intent);
+    }
 }
