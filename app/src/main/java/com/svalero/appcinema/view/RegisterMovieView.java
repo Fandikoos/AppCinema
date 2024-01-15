@@ -37,7 +37,7 @@ public class RegisterMovieView extends AppCompatActivity implements RegisterMovi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_movie);
 
-        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
+        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().addMigrations(AppDatabase.MIGRATION_1_2).build();
         presenter = new RegisterMoviePresenter(this);
 
         ImageView imageView = findViewById(R.id.movieCartel);

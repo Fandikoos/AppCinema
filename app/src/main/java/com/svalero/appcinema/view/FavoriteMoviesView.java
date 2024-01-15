@@ -34,7 +34,7 @@ public class FavoriteMoviesView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorite_movies);
         favoriteMovies = new ArrayList<>();
-        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().build();
+        db = Room.databaseBuilder(this, AppDatabase.class, DATABASE_NAME).allowMainThreadQueries().addMigrations(AppDatabase.MIGRATION_1_2).build();
         MovieDao movieDao = db.movieDao();
         favoriteMovies = movieDao.getFavoriteMovies();
 

@@ -46,6 +46,9 @@
         <activity
             android:name=".view.FavoriteMoviesView"
             android:exported="false"/>
+        <activity
+            android:name=".view.UpdateFavoriteMoviesView"
+            android:exported="false"/>
     </application>
 
 </manifest>

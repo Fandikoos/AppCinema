@@ -65,4 +65,8 @@
     <string name="titleList">"Title: "</string>
     <string name="directorList">"Director: "</string>
     <string name="favoritesTitle">Favorites List</string>
+    <string name="noDescription">Without Description</string>
+    <string name="newDescription">New description</string>
+    <string name="actualDescription">"Actual description: "</string>
+    <string name="updateFavMovie">Updated movie description</string>
 </resources>

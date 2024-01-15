@@ -46,7 +46,7 @@
     <string name="updatedMovieDuration">Nueva duración de la película</string>
     <string name="titleUpdate">"Título de la película actual: "</string>
     <string name="directorUpdate">"Director de la película actual: "</string>
-    <string name="genreUpdate">"Género de la pleícula actual: "</string>
+    <string name="genreUpdate">"Género de la película actual: "</string>
     <string name="durationUpdate">"Duración de la película actual: "</string>
     <string name="favourite">Favorito</string>
     <string name="favoriteAdd">Favoritos</string>
@@ -60,8 +60,12 @@
     <string name="nameList">"Nombre: "</string>
     <string name="ratingList">"Puntuación: "</string>
     <string name="latitudeList">"Latitud: "</string>
-    <string name="longitudeList">"Longitud: "</string>
+    <string name="longitudeList">Longitud: </string>
     <string name="titleList">"Título: "</string>
     <string name="directorList">"Director: "</string>
     <string name="favoritesTitle">Tu lista de Favoritos</string>
+    <string name="noDescription">Sin descripción</string>
+    <string name="newDescription">Nueva descripción</string>
+    <string name="actualDescription"> Descripción actual: </string>
+    <string name="updateFavMovie">Descripción actualizada de la película</string>
 </resources>
