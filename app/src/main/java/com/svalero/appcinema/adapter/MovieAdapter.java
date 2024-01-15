@@ -1,5 +1,6 @@
 package com.svalero.appcinema.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.util.Log;
@@ -7,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,6 +45,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull MovieAdapter.MovieHolder holder, int position) {
         Movie movie = movies.get(position);
@@ -52,8 +53,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieHolder>
         //Vemos si la peli que sacamos de la api está en la bbdd de Room de favoritos con el método
         holder.validateFavs(position);
 
-        holder.tvTitle.setText(movie.getTitle());
-        holder.tvDirector.setText(movie.getDirector());
+        holder.tvTitle.setText(holder.itemView.getContext().getString(R.string.titleList) + movie.getTitle());
+        holder.tvDirector.setText(holder.itemView.getContext().getString(R.string.directorList) + movie.getDirector());
     }
 
     @Override

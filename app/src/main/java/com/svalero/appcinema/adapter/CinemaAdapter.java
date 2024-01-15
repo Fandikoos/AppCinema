@@ -1,5 +1,6 @@
 package com.svalero.appcinema.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.util.Log;
@@ -41,15 +42,16 @@ public class CinemaAdapter extends RecyclerView.Adapter<CinemaAdapter.CinemaHold
 
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull CinemaHolder holder, int position) {
         Cinema cinema = cinemas.get(position);
         Log.d("Prueba", cinema.getName());
 
-        holder.tvName.setText(cinema.getName());
-        holder.tvRating.setText(String.valueOf(cinema.getRating()));
-        holder.tvLatitude.setText(String.valueOf(cinema.getLatitude()));
-        holder.tvLongitude.setText(String.valueOf(cinema.getLongitude()));
+        holder.tvName.setText(holder.itemView.getContext().getString(R.string.nameList) + cinema.getName());
+        holder.tvRating.setText(holder.itemView.getContext().getString(R.string.ratingList) + cinema.getRating());
+        holder.tvLatitude.setText(holder.itemView.getContext().getString(R.string.latitudeList) + cinema.getLatitude());
+        holder.tvLongitude.setText(holder.itemView.getContext().getString(R.string.longitudeList) + cinema.getLongitude());
 
     }
 

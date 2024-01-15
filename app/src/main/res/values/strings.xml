@@ -57,4 +57,11 @@
     <string name="nueva_latitud_del_cine">Nueva latitud del cine</string>
     <string name="latitud_del_cine">Latitud del cine</string>
     <string name="nueva_longitud_del_cine">Nueva longitud del cine</string>
+    <string name="nameList">"Nombre: "</string>
+    <string name="ratingList">"Puntuación: "</string>
+    <string name="latitudeList">"Latitud: "</string>
+    <string name="longitudeList">"Longitud: "</string>
+    <string name="titleList">"Título: "</string>
+    <string name="directorList">"Director: "</string>
+    <string name="favoritesTitle">Tu lista de Favoritos</string>
 </resources>

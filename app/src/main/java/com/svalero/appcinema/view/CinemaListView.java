@@ -91,7 +91,6 @@ public class CinemaListView extends AppCompatActivity implements CinemaListContr
 
     @Override
     public void listCinemas(List<Cinema> cinemas) {
-        Log.d("CinemaListView", "listCinemas Called");
         this.cinemas.clear();
         this.cinemas.addAll(cinemas);
         adapter.notifyDataSetChanged();
